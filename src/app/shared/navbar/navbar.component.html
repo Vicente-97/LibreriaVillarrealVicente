@@ -1,38 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#"  [routerLink]="['/home/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Libreria Villarreal</a>
+          <a class="navbar-brand" href="#"  [routerLink]="['/home/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Bookshop Villarreal</a>
+          <img src="https://res.cloudinary.com/dx46uo2cv/image/upload/v1675940571/Logo_Librer%C3%ADa_Lineal_Azul_Rosa__1_-removebg-preview_vo8d1z.png" width="100px" height="100px" class="d-block img-fluid" >
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
+              <li class="nav-item espacioHome">
                 <a class="nav-link active" aria-current="page" href="#" [routerLink]="['/home/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
               </li>
-              <li class="nav-item dropdown">
+              <li class="nav-item dropdown espacioHome">
                   <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" [routerLink]="['/category/list']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                       Categories
                 </a>
                     <!-- Primer desplegable -->
-                <ul class="dropdown-menu">
+                <ul class="dropdown-menu espacioHome">
                   <li><a class="dropdown-item" href="#"  [routerLink]="['/category/addCategory']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Add Category</a></li>
                 </ul>
               </li>
-              <li class="nav-item dropdown">
+              <li class="nav-item dropdown espacioHome">
                   <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" [routerLink]="['/books/list']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                       Books
                 </a>
                 <!-- Segundo desplegable -->
-                <ul class="dropdown-menu">
+                <ul class="dropdown-menu espacioHome">
                   <li><a class="dropdown-item" href="#" [routerLink]="['/books/addBook']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Add Book</a></li>
                  
                 </ul>
@@ -43,14 +35,30 @@
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
               <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
+            
+            <ul class="navbar-nav me-auto mb-lg-0">
+              <li class="nav-item dropdown dropdown-menu-right">
+                <a class="text-white nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <img src="https://res.cloudinary.com/dx46uo2cv/image/upload/v1675942692/24-248253_user-profile-default-image-png-clipart-png-download-removebg-preview_trleza.png" class="d-block img-fluid logoUser" width="60px" height="60px" >
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                  <li><a class=" dropdown-item" href="#">Logout</a></li>
+                  <li><a class=" dropdown-item" href="#">Update profile</a></li>
+                  
+                </ul>
+              </li>
+            </ul>
+            
+            </div>
           </div>
-        </div>
+       
       </nav>
 
       
-</body>
 
-</html>
+
+
+
 
   
   

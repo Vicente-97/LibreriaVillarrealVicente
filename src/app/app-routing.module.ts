@@ -15,14 +15,14 @@ const routes: Routes=[{
     loadChildren: () => import('./categories/categories.module').then( m => m.CategoriesModule )
   },
   { 
-    path: 'home',
+    path: '',
     loadChildren: () => import('./home/home.module').then( m => m.HomeModule )
   },
-  {
-    path: '',
-    redirectTo: 'books',
-    pathMatch: 'full'
-  },
+  // {
+  //   path: '',
+  //   redirectTo: 'books',
+  //   pathMatch: 'full'
+  // },
   {
     path: '**',
     component: NotFoundComponent
