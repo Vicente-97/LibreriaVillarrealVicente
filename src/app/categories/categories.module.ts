@@ -5,6 +5,7 @@ import { AddCategoryComponent } from './add-category/add-category.component';
 import { UpdateCategoryComponent } from './update-category/update-category.component';
 import { DeleteCategoryComponent } from './delete-category/delete-category.component';
 import { CategoryRoutingModule } from './categories-routing.module';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -17,7 +18,8 @@ import { CategoryRoutingModule } from './categories-routing.module';
   ],
   imports: [
     CommonModule,
-    CategoryRoutingModule
+    CategoryRoutingModule,
+    SharedModule
   ]
 })
 export class CategoriesModule { }

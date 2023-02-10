@@ -6,7 +6,13 @@ import { NotFoundComponent } from './shared/not-found/not-found.component';
 import { HomeModule } from './home/home.module';
 
 
-const routes: Routes=[{ 
+const routes: Routes=[
+  { 
+  
+    path: '',
+    loadChildren: () => import('./auth/auth.module').then( m => m.AuthModule )
+  },{ 
+  
     path: 'books',
     loadChildren: () => import('./books/books.module').then( m => m.BooksModule )
   },
@@ -15,7 +21,7 @@ const routes: Routes=[{
     loadChildren: () => import('./categories/categories.module').then( m => m.CategoriesModule )
   },
   { 
-    path: '',
+    path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomeModule )
   },
   // {

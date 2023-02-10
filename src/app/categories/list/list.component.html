@@ -1,1 +1,18 @@
-<p>list works!</p>
+<app-navbar></app-navbar>
+<div class="row">
+    <div class="col-sm-4">
+        <!-- Mostraremos una tarjeta por cada usuario -->
+        <div class="card mt-2" *ngFor="let category of categories">
+            <div class="card-header">{{category.name}}</div>
+            <div class="card-body">
+                <span><strong>description:</strong> {{category.description}}</span>
+                <br>
+                
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+    </div>
+    
+</div>
+<app-footer></app-footer>
