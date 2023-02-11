@@ -1,1 +1,56 @@
-<p>register works!</p>
+
+  <body>
+    <div class="container">
+      <h1 class="heading">Registro</h1>
+      <form class="form" action="#" (ngSubmit)="save()" [formGroup]="myForm">
+        <div class="form-group">
+
+          <input type="text" class="form-control" placeholder="Nombre" formControlName="nombre" />
+          <i class="fa fa-user form-control-feedback"></i>
+
+          <span class="form-text text-danger" *ngIf="isValidField('nombre')">
+            Debe de ser de 3 letras
+          </span>
+
+
+        </div>
+        <div class="form-group">
+          <input type="email" class="form-control" placeholder="Correo electrónico" formControlName="email"/>
+          <i class="fa fa-envelope form-control-feedback"></i>
+
+          <span class="form-text text-danger" *ngIf="isValidField('email')">
+            Es obligatorio un email valido
+          </span>
+
+          
+
+
+        </div>
+        <div class="form-group">
+          <input type="password" class="form-control" placeholder="Contraseña" formControlName="password"/>
+          <i class="fa fa-lock form-control-feedback"></i>
+
+
+          <span class="form-text text-danger" *ngIf="isValidField('password')">
+            La contraseña debe de ser de más de 8 caracteres.
+          </span>
+
+        </div>
+        <div class="form-group">
+          <input type="password" class="form-control" placeholder="Confirmar contraseña" formControlName="confirPassword"/>
+          <i class="fa fa-lock form-control-feedback"></i>
+
+          <span class="form-text text-danger" *ngIf="isValidField('confirPassword')">
+            La contraseña debe de ser de más de 8 caracteres.
+          </span>
+          
+          <span class="form-text text-danger" *ngIf="isValidPass('confirPassword')">
+            Las contraseñas deben coincidir
+          </span>
+          
+        </div>
+        <button type="submit" class="btn btn-primary">Registrarse</button>
+      </form>
+    </div>
+  </body>
+

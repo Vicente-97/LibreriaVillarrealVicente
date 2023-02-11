@@ -1,10 +1,99 @@
-.gradient-custom {
-    /* fallback for old browsers */
-    background: #6a11cb;
-    
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
-    
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))
-    }
+.login-form {
+  position: relative; /* Establecemos una posición relativa para el formulario */
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 30px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.form-bg {
+  position: absolute; /* Establecemos una posición absoluta para la imagen de fondo */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* La imagen de fondo debe estar detrás del formulario */
+  background: url(https://pixy.org/src2/577/5775865.jpg) center/cover no-repeat fixed; /* Agregamos la imagen de fondo */
+  filter: blur(5px); /* Aplicamos un filtro de desenfoque */
+}
+
+.form-inner {
+  position: relative; /* Establecemos una posición relativa para el contenido del formulario */
+  z-index: 1; /* El contenido del formulario debe estar por encima de la imagen de fondo */
+}
+
+/* Agregamos algunas reglas para estilizar el formulario */
+.form-title {
+  text-align: center;
+  font-weight: 700;
+}
+
+.form-floating {
+  position: relative;
+}
+
+.form-floating input {
+  height: calc(2.5rem + 2px);
+}
+
+.form-floating input:focus {
+  z-index: 2;
+}
+
+.form-floating label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  padding: 0.5rem;
+  pointer-events: none;
+  border: 1px solid transparent;
+  transform-origin: top left;
+  transition: all 0.1s ease-in-out;
+}
+
+.form-floating input:not(:placeholder-shown) + label {
+  transform: translateY(-1rem) scale(0.85);
+  opacity: 0.6;
+}
+
+.form-floating input:focus + label {
+  transform: translateY(-1rem) scale(0.85);
+  opacity: 0.6;
+}
+
+.btn-primary {
+  background-color: #1abc9c;
+  border-color: #1abc9c;
+}
+
+.btn-primary:hover {
+  background-color: #148f77;
+  border-color: black
+}
+.btn-secondary {
+  position: relative;
+  overflow: hidden;
+  background-color: transparent;
+  border-color: transparent;
+  color: #1abc9c;
+  margin-top: 10px;
+}
+
+.btn-secondary:hover {
+  color: #fff;
+}
+
+.btn-secondary::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50)
+}
+
+.login{
+  margin-top: 15em;
+}
