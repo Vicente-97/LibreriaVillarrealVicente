@@ -1,7 +1,44 @@
+
 <app-navbar></app-navbar>
+
 <div class="row">
+<div class="card cartas" style="width: 18rem;" *ngFor="let category of categories">
+    <img src="https://res.cloudinary.com/dx46uo2cv/image/upload/v1674914550/60600-3840x2160-spider-man-wallpaper-image-desktop-4k_qlu1wo.jpg" class="card-img-top" alt="imagen_Card">
+    <div class="card-body">
+      <h5 class="card-title">{{category.name}}</h5>
+      <p class="card-text">{{category.description}}</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="row">
     <div class="col-sm-4">
-        <!-- Mostraremos una tarjeta por cada usuario -->
+         Mostraremos una tarjeta por cada usuario 
         <div class="card mt-2" *ngFor="let category of categories">
             <div class="card-header">{{category.name}}</div>
             <div class="card-body">
@@ -14,5 +51,5 @@
     <div class="col-sm-4">
     </div>
     
-</div>
-<app-footer></app-footer>
+</div> -->
+

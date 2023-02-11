@@ -9,16 +9,20 @@ import { CategoryService } from '../services/categories.service';
 })
 export class ListComponent implements OnInit {
 
-  categories!: Categories[]
-  constructor(private categoriesServ: CategoryService ) { }
+ public categories: Categories[]=[];
+ 
+  constructor(private categoriesServ: CategoryService) { }
 
   ngOnInit(): void {
-    this.categoriesServ.getCategories()
-    .subscribe({
-      next: resp => this.categories=resp,
-      error: (error)=> console.log(error)
-
-
-   })
+    this.getCategoriesInit()
   }
+
+  getCategoriesInit() {
+    this.categoriesServ.getCategories()
+      .subscribe({
+        next: resp => this.categories = resp,
+        error: (error) => console.log(error)
+      })
+  }
+
 }
