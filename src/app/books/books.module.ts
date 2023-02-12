@@ -28,9 +28,8 @@ import { ButtonModule } from 'primeng/button';
     TableModule,
     ButtonModule
     
-  ],
-  schemas: [
-    CUSTOM_ELEMENTS_SCHEMA // Agregar aquí
   ]
+ 
+  
 })
 export class BooksModule { }
