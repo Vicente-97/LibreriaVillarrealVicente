@@ -1,6 +1,19 @@
 <app-navbar></app-navbar>
 
+<ngx-datatable class="material"
+               [rows]="rows"
+               [columns]="columns"
+               [columnMode]="'force'"
+               [headerHeight]="50"
+               [footerHeight]="50"
+               [rowHeight]="'auto'"
+               [limit]="10"
+               [selected]="selected"
+               (select)='onSelect($event)'
+               (activate)="onActivate($event)">
+</ngx-datatable>
 
+<!-- 
 <div class="row">
     <div class="card cartas" style="width: 18rem;" *ngFor="let book of books">
         <img src="{{book.img}}" class="card-img-top" alt="imagen_Card">
@@ -14,7 +27,7 @@
           <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
       </div>
-    </div>
+    </div> -->
 
 
 
