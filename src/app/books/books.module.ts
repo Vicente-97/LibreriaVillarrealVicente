@@ -7,6 +7,8 @@ import { DeleteBookComponent } from './delete-book/delete-book.component';
 import { BookRoutingModule } from './book-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { TableModule } from 'primeng/table';
+import { ButtonModule } from 'primeng/button';
 
 
 
@@ -23,7 +25,8 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
     CommonModule,
     BookRoutingModule,
     SharedModule,
-    NgxDatatableModule
+    TableModule,
+    ButtonModule
     
   ],
   schemas: [

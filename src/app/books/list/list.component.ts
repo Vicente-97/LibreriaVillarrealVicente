@@ -13,33 +13,20 @@ export class ListComponent implements OnInit {
 
   constructor(private bookServ : BooksService) { }
 
-  //row!: any[];
+  
 
-  rows = [
-    { name: 'John', gender: 'Male', age: 35 },
-    { name: 'Jane', gender: 'Female', age: 28 },
-    { name: 'Bob', gender: 'Male', age: 42 }
-  ];
-  columns = [
-    { headerName: 'Isbn', field: 'isbn',  minWidth: 500},
-    { headerName: 'Title', field: 'model' },
-    { headerName: 'dateBook', field: 'dateBook' },
-    { headerName: 'author', field: 'author' },
-    { headerName: 'price', field: 'price' },
-    { headerName: 'stock', field: 'stock' }
-  ];
 
   ngOnInit(): void {
-   //this.getBooks()
+   this.getBooks()
 
   }
 
-  // getBooks(){
-  //   this.bookServ.getBooks().subscribe((data: any[])=>{
-  //     this.rowData = data;
-  //   })
+  getBooks(){
+    this.bookServ.getBooks().subscribe({
+      next: (resp)=> this.books=resp
+    })
 
-  //   }
+    }
 
     selected! :any[];
 

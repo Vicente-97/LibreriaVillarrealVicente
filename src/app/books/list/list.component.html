@@ -1,5 +1,41 @@
 <app-navbar></app-navbar>
 
+
+<p-table [value]="books">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Isbn</th>
+      <th>Imagen</th>
+      <th>Title</th>
+      <th>dateBook</th>
+      <th>author</th>
+      <th>price</th>
+      <th>stock</th>
+      
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-car>
+    <tr *ngFor="let book of books">
+      <td >{{book.isbn}}</td>
+      <td ><img [src]="book.img" width="85" height="85"></td>
+      <td >{{book.title}}</td>
+      <td >{{book.dateBook}}</td>
+      <td >{{book.author}}</td>
+      <td >{{book.price}}</td>
+      <td >{{book.stock}}</td>
+      
+      
+      <td>
+        <button pButton icon="pi pi-pencil" label="Edit"></button>
+        <button pButton icon="pi pi-trash" label="Delete"></button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+
+
+
+<!-- 
 <ngx-datatable class="material"
                [rows]="rows"
                [columns]="columns"
@@ -11,7 +47,7 @@
                [selected]="selected"
                (select)='onSelect($event)'
                (activate)="onActivate($event)">
-</ngx-datatable>
+</ngx-datatable> -->
 
 <!-- 
 <div class="row">
