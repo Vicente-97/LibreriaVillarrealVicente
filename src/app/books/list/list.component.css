@@ -1,0 +1,28 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  th {
+    background-color: #dddddd;
+  }
+  
+  @media (max-width: 600px) {
+    td, th {
+      display: block;
+      border: none;
+      align-items: center;
+      align-content: center;
+    }
+  
+    td {
+      text-align: right;
+    }
+  }
+  
