@@ -1,71 +1,52 @@
 <app-navbar></app-navbar>
 
-
-<p-table [value]="books">
-  <ng-template pTemplate="header">
-    <tr>
-      <th>Isbn</th>
-      <th>Imagen</th>
-      <th>Title</th>
-      <th>dateBook</th>
-      <th>author</th>
-      <th>price</th>
-      <th>stock</th>
-     
-      
-    </tr>
-  </ng-template>
-  <ng-template pTemplate="body" let-car>
-    <tr *ngFor="let book of books">
-      <td >{{book.isbn}}</td>
-      <td ><img [src]="book.img" width="120" height="120"></td>
-      <td >{{book.title}}</td>
-      <td >{{book.dateBook}}</td>
-      <td >{{book.author}}</td>
-      <td >{{book.price}}</td>
-      <td >{{book.stock}}</td>
-      
-      
-      <td>
-        <button pButton icon="pi pi-pencil" label="Edit"></button>
-        <button pButton icon="pi pi-trash" label="Delete"></button>
-      </td>
-    </tr>
-  </ng-template>
+<div  class="row">
+  <div class="col">
+<p-table *ngIf="books" [value]="books"   [paginator]="true" 
+            [rows]="10" [showCurrentPageReport]="true"
+            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,15,20]">
+    <ng-template pTemplate="header">
+        <tr>
+          <th>Isbn</th>
+          <th>Imagen</th>
+          <th>Title</th>
+          <th>dateBook</th>
+          <th>author</th>
+          <th>price</th>
+          <th>stock</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-book>
+        <tr>
+          <td >{{book.isbn}}</td>
+          <td ><img [src]="book.img" width="120" height="120"></td>
+          <td >{{book.title}}</td>
+          <td >{{book.dateBook}}</td>
+          <td >{{book.author}}</td>
+          <td >{{book.price}}</td>
+          <td >{{book.stock}}</td>
+          <td>
+            <button pButton icon="pi pi-pencil" label="Edit"></button>
+            <button pButton icon="pi pi-trash" label="Delete"></button>
+          </td>
+        
+        </tr>
+    </ng-template>
 </p-table>
+</div>
+</div>
 
 
-
-<!-- 
-<ngx-datatable class="material"
-               [rows]="rows"
-               [columns]="columns"
-               [columnMode]="'force'"
-               [headerHeight]="50"
-               [footerHeight]="50"
-               [rowHeight]="'auto'"
-               [limit]="10"
-               [selected]="selected"
-               (select)='onSelect($event)'
-               (activate)="onActivate($event)">
-</ngx-datatable> -->
-
-<!-- 
 <div class="row">
-    <div class="card cartas" style="width: 18rem;" *ngFor="let book of books">
-        <img src="{{book.img}}" class="card-img-top" alt="imagen_Card">
-        <div class="card-body">
-          <h5 class="card-title">{{book.title}}</h5>
-          <p class="card-text">{{book.isbn}}</p>
-          <p class="card-text">{{book.author}}</p>
-          <p class="card-text">{{book.price}}</p>
-          <p class="card-text">{{book.dateBook}}</p>
-          <p class="card-text">{{book.stock}}</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-    </div> -->
+  <div class="col">
+
+    <app-footer></app-footer>
+
+  </div>
+
+</div>
 
 
 
-<app-footer></app-footer>
+
+  
