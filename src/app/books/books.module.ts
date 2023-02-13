@@ -9,6 +9,7 @@ import { SharedModule } from '../shared/shared.module';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
+import { PaginatorModule } from 'primeng/paginator';
 
 
 
@@ -26,7 +27,9 @@ import { ButtonModule } from 'primeng/button';
     BookRoutingModule,
     SharedModule,
     TableModule,
-    ButtonModule
+    ButtonModule,
+    PaginatorModule
+    
     
   ]
  

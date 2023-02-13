@@ -8,9 +8,9 @@ import { BooksService } from '../services/books.service';
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
-
   public books :Books[]=[]
-
+ 
+  
   constructor(private bookServ : BooksService) { }
 
   
@@ -18,7 +18,18 @@ export class ListComponent implements OnInit {
 
   ngOnInit(): void {
    this.getBooks()
-
+   
+   
+  //  this.cols = [
+  //   { field: 'isbn', header: 'ISBN' },
+  //   { field: 'img', header: 'Imagen' },
+  //   { field: 'title', header: 'Title' },
+  //   { field: 'dateBook', header: 'dateBook' },
+  //   { field: 'author', header: 'Autor' },
+  //   { field: 'price', header: 'Precio' },
+  //   { field: 'stock', header: 'Stock' }
+  //  ]
+   
   }
 
   getBooks(){
@@ -26,8 +37,9 @@ export class ListComponent implements OnInit {
       next: (resp)=> this.books=resp
     })
 
-    }
+  }
 
+   
     selected! :any[];
 
     onSelect({ selected }:any) {
@@ -38,5 +50,10 @@ export class ListComponent implements OnInit {
     onActivate(event:any) {
       console.log(event);
     }
-  }
+
+     }
+
+    
+
+
 
