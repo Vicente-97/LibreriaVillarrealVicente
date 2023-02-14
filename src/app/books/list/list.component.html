@@ -1,7 +1,17 @@
 <app-navbar></app-navbar>
+<div class="container-fluid">
+<div  class="col">
+  <div class="row">
+    <div class="col-md-6">
+      <h1 class="m-4">Book List</h1>
+  </div>
 
-<div  class="row">
-  <div class="col">
+ 
+</div>
+
+<div class="row  d-flex justify-content-center w-100">
+
+  
 <p-table *ngIf="books" [value]="books"   [paginator]="true" 
             [rows]="10" [showCurrentPageReport]="true"
             currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,15,20]">
@@ -37,16 +47,11 @@
 </div>
 
 
-<div class="row">
-  <div class="col">
-
-    <app-footer></app-footer>
-
-  </div>
 
 </div>
+<app-footer></app-footer>
 
-
+ 
 
 
   
