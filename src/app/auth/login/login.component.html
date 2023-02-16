@@ -1,33 +1,33 @@
 <div class="form-bg"></div> <!-- Agregamos un div para la imagen de fondo difuminada -->
-<form class="login-form login" action="#" method="post" #loginForm="ngForm" (ngSubmit)="onSubmit()"> 
+<form class="login-form login" action="#" method="post" #loginForm="ngForm" (ngSubmit)="signIn()"> 
   <div class="form-inner">
     <div class="text-center mb-4">
       <img class="mb-3" src="https://res.cloudinary.com/dx46uo2cv/image/upload/v1675940571/Logo_Librer%C3%ADa_Lineal_Azul_Rosa__1_-removebg-preview_vo8d1z.png" alt="Logo" width="72" height="72">
       <h2 class="form-title mb-3">Iniciar Sesión</h2>
     </div>
     <div class="form-floating mb-3">
-      <input type="text" class="form-control" id="username" name="username" placeholder="Nombre de Usuario" required ngModel name="username" minlength="3" >
+      <input type="text" class="form-control" id="username" name="username" [ngModel]="initForm.username" placeholder="Nombre de Usuario" required ngModel name="username" minlength="3" >
       
       <label for="username">Nombre de Usuario</label>
 
-      <span class="form-text text-danger" *ngIf="nombreValido()">
+      <span class="form-text text-danger" *ngIf="nombreValido('username')">
         El usuario debe de tener más de 3 caracteres.
       </span>
 
     </div>
     <div class="form-floating mb-3">
-      <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña" required ngModel name="password" minlength="3" >
+      <input type="password" class="form-control" id="password" name="password" [ngModel]="initForm.password" placeholder="**************" required ngModel name="password" minlength="3" >
 
 
       <label for="password">Contraseña</label>
 
-      <span class="form-text text-danger" *ngIf="passwordValida()" >
+      <span class="form-text text-danger" *ngIf="nombreValido('password')" >
         La contraseña debe de tener más de 3 caracteres
       </span>
 
     </div>
     <button type="submit" class="btn btn-primary w-100" [disabled]="loginForm.invalid"
-    (click)="onSubmit()">Iniciar Sesión</button>
+    >Iniciar Sesión</button>
     <button type="submit" class="btn btn-secondary w-100" id="register-btn" [routerLink]="['/register']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Registrarse</button>
   </div>
 </form>

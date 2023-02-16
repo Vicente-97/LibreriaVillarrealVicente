@@ -42,7 +42,7 @@
                   <img src="https://res.cloudinary.com/dx46uo2cv/image/upload/v1675942692/24-248253_user-profile-default-image-png-clipart-png-download-removebg-preview_trleza.png" class="d-block img-fluid logoUser" width="60px" height="60px" >
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                  <li><a class=" dropdown-item" href="#">Logout</a></li>
+                  <li><a class=" dropdown-item"  (click)="logOut()" [routerLink]="['/']" routerLinkActive="active">Logout</a></li>
                   <li><a class=" dropdown-item" href="#">Update profile</a></li>
                   
                 </ul>

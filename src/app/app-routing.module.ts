@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { CategoriesModule } from './categories/categories.module';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
 import { HomeModule } from './home/home.module';
+import { Guardian } from './guardian.service';
 
 
 const routes: Routes=[

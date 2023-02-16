@@ -1,3 +1,3 @@
 export interface RespuestaAuth{
-    jwt_token: string;
+    token: string;
 }
