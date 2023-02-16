@@ -1,3 +1,3 @@
 export interface RespuestaAuth{
-    token: string;
+    token:  string;
 }
