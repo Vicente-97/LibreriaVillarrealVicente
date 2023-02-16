@@ -1,10 +1,10 @@
 
-import { RouterModule, Routes } from "@angular/router";
+import { RouterModule, Routes, CanActivate } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CategoriesModule } from './categories/categories.module';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
 import { HomeModule } from './home/home.module';
-import { Guardian } from './guardian.service';
+import {  AuthGuardian } from './guardian.service';
 
 
 const routes: Routes=[
@@ -15,15 +15,15 @@ const routes: Routes=[
   },{ 
   
     path: 'books',
-    loadChildren: () => import('./books/books.module').then( m => m.BooksModule )
+    loadChildren: () => import('./books/books.module').then( m => m.BooksModule ),canActivate:[AuthGuardian]
   },
   { 
     path: 'category',
-    loadChildren: () => import('./categories/categories.module').then( m => m.CategoriesModule )
+    loadChildren: () => import('./categories/categories.module').then( m => m.CategoriesModule ),canActivate:[AuthGuardian]
   },
   { 
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomeModule )
+    loadChildren: () => import('./home/home.module').then( m => m.HomeModule ), canActivate:[AuthGuardian]
   },
   // {
   //   path: '',

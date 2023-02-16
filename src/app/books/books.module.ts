@@ -6,10 +6,11 @@ import { UpdateBookComponent } from './update-book/update-book.component';
 import { DeleteBookComponent } from './delete-book/delete-book.component';
 import { BookRoutingModule } from './book-routing.module';
 import { SharedModule } from '../shared/shared.module';
-import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
 import { PaginatorModule } from 'primeng/paginator';
+import { AuthInterceptorService } from '../auth-interceptor.service';
 
 
 
@@ -28,9 +29,13 @@ import { PaginatorModule } from 'primeng/paginator';
     SharedModule,
     TableModule,
     ButtonModule,
-    PaginatorModule
+    PaginatorModule,
+    HttpClientModule
     
     
+  ],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }
   ]
  
   
