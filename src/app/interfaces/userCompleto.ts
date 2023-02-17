@@ -9,3 +9,10 @@ export interface userCompleto{
     role:String,
     img:String
 }
+
+
+export interface userRegister{
+    username:string
+    email:string,
+    password:string
+}

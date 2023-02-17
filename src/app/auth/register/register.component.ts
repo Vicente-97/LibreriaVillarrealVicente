@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { userRegister } from '../../interfaces/userCompleto';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -9,10 +11,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+  
+  
 
-
-
-  constructor(private fb: FormBuilder, private router: Router) { }
+  constructor(private fb: FormBuilder, private router: Router, private servicio : AuthService) { }
 
   myForm: FormGroup= this.fb.group({
     nombre:['', [Validators.required, Validators.minLength(3)]],
@@ -21,7 +23,34 @@ export class RegisterComponent implements OnInit {
     confirPassword:['', [Validators.required, Validators.minLength(8), this.match('password') ]]
   });
 
+  saveRegister(){
+    const username:string =this.myForm.get('nombre')?.value
+    const password:string = this.myForm.get('password')?.value
+    const email:string =this.myForm.get('email')?.value
+    console.log(username,email,password)
+    this.servicio.register(username,email,password
+    ).subscribe({
+        next: (resp) => {
+          if (resp) {
+            console.log(resp)
+            if(this.myForm.valid){
+            
+              Swal.fire({
+                icon: 'success',
+                title: 'Revisa el correo electrónico y verifica el correo',
+                text: '¡Bienvenido a la Biblioteca Villarreal!',
+            });
+            this.router.navigate(['/home'])
 
+          }else {
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: 'Algo debe haber salido mal!',
+              footer: '<a href="">Why do I have this issue?</a>'
+            })
+          }}}})
+       }
   
 
   isValidField(field: string){
@@ -53,18 +82,7 @@ export class RegisterComponent implements OnInit {
   save(){
     if(this.myForm.valid){
       this.myForm.markAllAsTouched()
-      Swal.fire({
-        icon: 'success',
-        title: 'Registro exitoso',
-        text: '¡Su registro se ha completado!',
-      });
-      this.router.navigate([''])
-    }else{
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Registro incorrecto, algo ha salido mal...',
-      });
+      
     }
   }
 }

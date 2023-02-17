@@ -2,6 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, Observable, of, switchMap } from 'rxjs';
 import { RespuestaAuth } from '../../interfaces/jwtInterface';
+import { userRegister, userCompleto } from '../../interfaces/userCompleto';
+import { environment } from 'src/environments/environment';
+import Swal from 'sweetalert2';
+
 
 @Injectable({
   providedIn: 'root'
@@ -55,6 +59,34 @@ export class AuthService {
     isAuthenticated() {
       return localStorage.getItem('authenticated') === 'true'
     }
+
+
+
+    register(username:string,email:string,password:string):Observable<boolean>{
+      console.log(username,password)
+      
+      return this.http.post<any>(environment.apiUrl+"/register",{'username':username,'email':email,'password':password}, this.httpOptions)
+      .pipe(switchMap(resp=>{
+        //  let indice = resp.indexOf(" ");
+        // console.log(resp.token.substring(indice, resp.token.length))
+  
+        return of(true);
+      
+    }),catchError(error=>{
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Algo debe haber salido mal!',
+        footer: '<a href="">Why do I have this issue?</a>'
+      })
+      
+      
+      return of(false)
+    }))
+    }
+
+
+
   }
 
   
