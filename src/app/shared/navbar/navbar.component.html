@@ -15,7 +15,7 @@
                       Categories
                 </a>
                     <!-- Primer desplegable -->
-                <ul class="dropdown-menu espacioHome">
+                <ul class="dropdown-menu espacioHome" *ngIf="isAdmin">
                   <li><a class="dropdown-item" href="#"  [routerLink]="['/category/addCategory']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Add Category</a></li>
                 </ul>
               </li>
@@ -24,7 +24,7 @@
                       Books
                 </a>
                 <!-- Segundo desplegable -->
-                <ul class="dropdown-menu espacioHome">
+                <ul class="dropdown-menu espacioHome" *ngIf="isAdmin">
                   <li><a class="dropdown-item" href="#" [routerLink]="['/books/addBook']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Add Book</a></li>
                  
                 </ul>

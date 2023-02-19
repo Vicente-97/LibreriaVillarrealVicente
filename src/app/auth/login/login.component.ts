@@ -14,10 +14,10 @@ export class LoginComponent implements OnInit {
   @ViewChild('loginForm') loginForm!: NgForm
 
   
-  initForm = {
-    username: "",
-    password: ""
-  }
+  // initForm = {
+  //   username: "",
+  //   password: ""
+  // }
   isLoggedIn!: boolean;
 
 

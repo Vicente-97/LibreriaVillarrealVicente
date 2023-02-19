@@ -13,14 +13,12 @@ export class CategoryService {
 
 
   getCategories():Observable<Categories[]>{
-    
-    //  const  httpOptions = {
-    //     headers: new HttpHeaders({ 'Authorization': `Bearer ${this.jwt}` })
-    //   };
-    
         return this.http.get<Categories[]>(environment.apiUrl+'/category')
       }
 
-
+  addCategory(name:string, description:string ):Observable<Categories>{
+    const headers = { 'content-type': 'application/json'}   
+    return this.http.post<Categories>(environment.apiUrl+'/category',{'name':name, 'description': description},{'headers':headers})
+  }
 
 }

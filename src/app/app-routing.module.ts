@@ -1,5 +1,5 @@
 
-import { RouterModule, Routes, CanActivate } from '@angular/router';
+import { RouterModule, Routes,  } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CategoriesModule } from './categories/categories.module';
 import { NotFoundComponent } from './shared/not-found/not-found.component';

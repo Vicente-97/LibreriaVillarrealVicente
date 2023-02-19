@@ -20,16 +20,7 @@ export class ListComponent implements OnInit {
    this.getBooks()
    
    
-  //  this.cols = [
-  //   { field: 'isbn', header: 'ISBN' },
-  //   { field: 'img', header: 'Imagen' },
-  //   { field: 'title', header: 'Title' },
-  //   { field: 'dateBook', header: 'dateBook' },
-  //   { field: 'author', header: 'Autor' },
-  //   { field: 'price', header: 'Precio' },
-  //   { field: 'stock', header: 'Stock' }
-  //  ]
-   
+
   }
 
   getBooks(){

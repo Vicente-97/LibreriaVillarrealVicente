@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, CanActivate } from '@angular/router';
+import { RolGuardGuard } from '../rol-guard.guard';
 import { AddCategoryComponent } from './add-category/add-category.component';
 import { DeleteCategoryComponent } from './delete-category/delete-category.component';
 import { ListComponent } from './list/list.component';

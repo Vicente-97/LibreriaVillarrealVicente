@@ -6,6 +6,8 @@ import { UpdateCategoryComponent } from './update-category/update-category.compo
 import { DeleteCategoryComponent } from './delete-category/delete-category.component';
 import { CategoryRoutingModule } from './categories-routing.module';
 import { SharedModule } from '../shared/shared.module';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -19,7 +21,9 @@ import { SharedModule } from '../shared/shared.module';
   imports: [
     CommonModule,
     CategoryRoutingModule,
-    SharedModule
+    SharedModule,
+    FormsModule,
+    HttpClientModule
   ]
 })
 export class CategoriesModule { }

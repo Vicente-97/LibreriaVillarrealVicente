@@ -5,14 +5,15 @@ import { RespuestaAuth } from '../../interfaces/jwtInterface';
 import { userRegister, userCompleto } from '../../interfaces/userCompleto';
 import { environment } from 'src/environments/environment';
 import Swal from 'sweetalert2';
+import jwt_decode from 'jwt-decode';
+
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-
-
+  
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
@@ -85,9 +86,24 @@ export class AuthService {
     }))
     }
 
-
-
+    
+    isUserAdmin(jwt: string): boolean {
+      // Decodifica el token JWT
+      const decodedToken :userCompleto = jwt_decode(jwt);
+    
+      // Verifica si el rol del usuario es 'administrador'
+      if (decodedToken.role === 'ADMIN') {
+        return true;
+      } else {
+        return false;
+      }
+    }
+   
   }
+  
+
+
+  
 
   
   
