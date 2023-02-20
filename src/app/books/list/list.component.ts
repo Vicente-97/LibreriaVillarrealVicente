@@ -18,7 +18,7 @@ export class ListComponent implements OnInit {
 
   ngOnInit(): void {
    this.getBooks()
-   
+   console.log("peticion")
    
 
   }

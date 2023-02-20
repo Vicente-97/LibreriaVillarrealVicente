@@ -1,4 +1,4 @@
-<body>
+<!-- <body>
     <div class="container formulario">
       <div class="row">
         <div class="col-sm-12 col-md-6 offset-md-3">
@@ -24,8 +24,36 @@
         </div>
       </div>
     </div>
-    <!-- Cargamos los scripts de Bootstrap -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    Cargamos los scripts de Bootstrap -->
+
+
+  <body>
+    <div class="container">
+      <h1 class="heading">Añadir Categoria</h1>
+      <form class="form"  action="#" method="post" #addCategory="ngForm" (ngSubmit)="addCategories()">
+        <div class="form-group">
+          <label for="input2">Name:</label>
+          <input type="text" class="form-control" id="nombre" placeholder="Introduce el nombre" required [(ngModel)]="name" ngModel name="name" minlength="3">
+
+              <span class="form-text text-danger" *ngIf="nombreValido('name')" >
+                La contraseña debe de tener más de 3 caracteres
+              </span>
+
+        </div>
+        <div class="form-group">
+          <label for="input2">Descripcion</label>
+              <input type="text" class="form-control" id="descripcion" placeholder="Introduce la descripcion" required [(ngModel)]="description" name="description" minlength="3">
+
+              <span class="form-text text-danger" *ngIf="nombreValido('description')" >
+                La contraseña debe de tener más de 3 caracteres
+              </span>
+
+          
+
+
+        </div>
+       
+         <button type="submit" class="btn btn-primary">Añadir Categoria</button>
+      </form>
+    </div>
   </body>

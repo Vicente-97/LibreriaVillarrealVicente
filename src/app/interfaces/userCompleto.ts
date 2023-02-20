@@ -6,7 +6,7 @@ export interface userCompleto{
     enabled: Boolean,
     email: String,
     verificationCode:String,
-    role:String,
+    role:string,
     img:String
 }
 

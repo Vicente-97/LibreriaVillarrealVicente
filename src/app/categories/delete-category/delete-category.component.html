@@ -1,1 +1,31 @@
-<p>delete-category works!</p>
+<body>
+    <div class="container">
+      <h1 class="heading">Borrar Categoria</h1>
+      <form class="form"  action="#" method="post" #deleteCategory="ngForm" (ngSubmit)="deleteCategories()">
+        <div class="form-group">
+          <label for="input2">Name:</label>
+          <input type="text" class="form-control" id="nombre" placeholder="Introduce el nombre" required [(ngModel)]="name" ngModel name="name" readonly>
+
+              <span class="form-text text-danger" *ngIf="nombreValido('name')" >
+                El nombre debe de tener más de 3 caracteres
+              </span>
+
+        </div>
+        <div class="form-group">
+          <label for="input2">Descripcion</label>
+              <input type="text" class="form-control" id="descripcion" placeholder="Introduce la descripcion" required [(ngModel)]="description" name="description"  readOnly>
+
+              <span class="form-text text-danger" *ngIf="nombreValido('description')" >
+                La descripcion debe de tener más de 3 caracteres
+              </span>
+
+          
+
+
+        </div>
+       
+         <button type="submit" class="btn btn-primary">Borrar Categoria</button>
+      </form>
+    </div>
+  </body>
+

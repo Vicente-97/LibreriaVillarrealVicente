@@ -34,6 +34,8 @@ export class AuthService {
       console.log(resp)
       localStorage.setItem("authenticated", "true")
       localStorage.setItem("jwt", resp.token)
+      const decodedToken :userCompleto = jwt_decode(resp.token);
+      localStorage.setItem("role", decodedToken.role)
      
         return of(true);
       }), catchError(error => {
@@ -53,6 +55,7 @@ export class AuthService {
     logout() {
       localStorage.setItem("authenticated", "false")
       localStorage.removeItem('jwt');
+      localStorage.removeItem('role');
       //this.authenticated = false;
     }
     

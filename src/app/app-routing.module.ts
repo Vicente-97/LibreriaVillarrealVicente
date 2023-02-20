@@ -5,6 +5,7 @@ import { CategoriesModule } from './categories/categories.module';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
 import { HomeModule } from './home/home.module';
 import {  AuthGuardian } from './guardian.service';
+import { RolGuardGuard } from './rol-guard.guard';
 
 
 const routes: Routes=[
