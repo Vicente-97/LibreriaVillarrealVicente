@@ -40,7 +40,7 @@ export class RegisterComponent implements OnInit {
                 title: 'Revisa el correo electrónico y verifica el correo',
                 text: '¡Bienvenido a la Biblioteca Villarreal!',
             });
-            this.router.navigate(['/home'])
+            this.router.navigate(['/'])
 
           }else {
             Swal.fire({

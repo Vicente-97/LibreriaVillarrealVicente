@@ -101,6 +101,28 @@ export class AuthService {
         return false;
       }
     }
+
+
+    verify(username:string, code:string):Observable<boolean>{
+        return this.http.get<any>(environment.apiUrl+`/verify?code=${code}&username=${username}`)
+        .pipe(switchMap(resp=>{
+          //  let indice = resp.indexOf(" ");
+          // console.log(resp.token.substring(indice, resp.token.length))
+    
+          return of(true);
+        
+      }),catchError(error=>{
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Algo debe haber salido mal al verificar!',
+          footer: '<a href="">Why do I have this issue?</a>'
+        })
+        
+        
+        return of(false)
+      }))
+    }
    
   }
   

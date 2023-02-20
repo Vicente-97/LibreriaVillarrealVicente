@@ -12,9 +12,9 @@ const routes: Routes = [
       path: '',
       children: [
         { path: 'addCategory', canActivate:[RolGuardGuard], component: AddCategoryComponent },
-        { path: 'deleteCategory/:id', component: DeleteCategoryComponent  },
+        { path: 'deleteCategory/:id',canActivate:[RolGuardGuard], component: DeleteCategoryComponent  },
         { path: 'list', component: ListComponent },
-        { path: 'updateCategory/:id', component: UpdateCategoryComponent },
+        { path: 'updateCategory/:id',canActivate:[RolGuardGuard], component: UpdateCategoryComponent },
         { path: '**', redirectTo: 'category' }
       ]
     }
