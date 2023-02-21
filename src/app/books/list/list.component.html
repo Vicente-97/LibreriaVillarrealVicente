@@ -12,17 +12,17 @@
 <div class="row  d-flex justify-content-center w-100">
 
   
-<p-table *ngIf="books" [value]="books"   [paginator]="true" 
+<p-table class="some-custom-class-name" *ngIf="books" [value]="books"   [paginator]="true" 
             [rows]="10" [showCurrentPageReport]="true"
-            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,15,20]">
+            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,20]" sortMode="multiple" >
     <ng-template pTemplate="header">
         <tr>
-          <th>Isbn</th>
+          <th pSortableColumn="isbn">Isbn<p-sortIcon field="isbn"></p-sortIcon></th>
           <th>Imagen</th>
-          <th>Title</th>
+          <th pSortableColumn="title">Title<p-sortIcon field="title"></p-sortIcon></th>
           <th>dateBook</th>
-          <th>author</th>
-          <th>price</th>
+          <th pSortableColumn="author">Author<p-sortIcon field="author"></p-sortIcon></th>
+          <th pSortableColumn="price">Price<p-sortIcon field="price"></p-sortIcon></th>
           <th>stock</th>
         </tr>
     </ng-template>

@@ -39,5 +39,15 @@ table {
       font-weight: bold;
       text-transform: uppercase;
     }
+
+    p-datatable.beatDatatable .ui-datatable .ui-datatable-thead .ui-state-default {
+      color: #000 !important;
+      line-height: 2 !important;
+      text-align: center !important;
+  }
+
+  .some-custom-class-name::ng-deep th {
+    background-color: blue !important;
+}
   }
   

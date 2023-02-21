@@ -15,6 +15,7 @@ import { AuthInterceptorService } from '../auth-interceptor.service';
 
 
 
+
 @NgModule({
   declarations: [
     ListComponent,
@@ -30,7 +31,8 @@ import { AuthInterceptorService } from '../auth-interceptor.service';
     TableModule,
     ButtonModule,
     PaginatorModule,
-    HttpClientModule
+    HttpClientModule,
+    
     
     
   ],
