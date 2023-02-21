@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-verify',
@@ -26,7 +27,11 @@ export class VerifyComponent {
     this.servicio.verify(username, code).subscribe({
       next:(resp)=> {
         if(resp){
-          console.log('correcto')
+          Swal.fire({
+            icon: 'success',
+            title: 'Verificación completada con éxito',
+            text: '¡Bienvenido a la Biblioteca Villarreal!',
+        })
           this.router.navigate(['/'])
         }
       },error:(err)=> {

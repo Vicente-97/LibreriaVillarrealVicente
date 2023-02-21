@@ -14,7 +14,7 @@
   
 <p-table class="some-custom-class-name" *ngIf="books" [value]="books"   [paginator]="true" 
             [rows]="10" [showCurrentPageReport]="true"
-            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,20]" sortMode="multiple" >
+            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,20]"  >
     <ng-template pTemplate="header">
         <tr>
           <th pSortableColumn="isbn">Isbn<p-sortIcon field="isbn"></p-sortIcon></th>
