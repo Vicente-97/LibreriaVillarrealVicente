@@ -18,8 +18,8 @@ export class AuthInterceptorService implements HttpInterceptor{
     const jwt: string|null = localStorage.getItem('jwt');
 
     let request = req;
-    console.log("interceptor")
-    console.log(jwt)
+    // console.log("interceptor")
+    // console.log(jwt)
     if (jwt) {
       request = req.clone({
         setHeaders: {

@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Books } from '../../interfaces/bookInterface';
 import { BooksService } from '../services/books.service';
-import {ViewEncapsulation} from '@angular/core';
 
 @Component({
   selector: 'app-list ',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.css'],
-  encapsulation : ViewEncapsulation.None
+  
 })
 export class ListComponent implements OnInit {
   public books :Books[]=[]

@@ -49,5 +49,8 @@ table {
   .some-custom-class-name::ng-deep th {
     background-color: blue !important;
 }
+
+
+
   }
   
