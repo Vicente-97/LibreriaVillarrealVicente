@@ -29,12 +29,24 @@
                  
                 </ul>
               </li>
+
+              <li class="nav-item dropdown espacioHome" *ngIf="isAdmin">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" [routerLink]="['/user/list']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                    Users
+              </a>
+               <!-- Primer desplegable -->
+               <ul class="dropdown-menu espacioHome" *ngIf="isAdmin">
+                <li><a class="dropdown-item" href="#"  [routerLink]="['/user/addUser']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Add User</a></li>
+              </ul>
+            </li>
+
+            
               
             </ul>
-            <form class="d-flex" role="search">
+            <!-- <form class="d-flex" role="search">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
               <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
+            </form> -->
             
             <ul class="navbar-nav me-auto mb-lg-0">
               <li class="nav-item dropdown dropdown-menu-right">
@@ -42,8 +54,10 @@
                   <img src="https://res.cloudinary.com/dx46uo2cv/image/upload/v1675942692/24-248253_user-profile-default-image-png-clipart-png-download-removebg-preview_trleza.png" class="d-block img-fluid logoUser" width="60px" height="60px" >
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                  <li><a class=" dropdown-item"  (click)="logOut()" [routerLink]="['/']" routerLinkActive="active">Logout</a></li>
-                  <li><a class=" dropdown-item" href="#">Update profile</a></li>
+                  <li><a class=" dropdown-item"  (click)="logOut()" [routerLink]="['/']" >Logout</a></li>
+                  
+                  <li><a class=" dropdown-item" href="#" [routerLink]="['/user/updateUser/',userDetails]" >Update profile</a></li>
+                  
                   
                 </ul>
               </li>

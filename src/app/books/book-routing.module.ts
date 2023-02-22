@@ -4,16 +4,17 @@ import { AddBookComponent } from './add-book/add-book.component';
 import { DeleteBookComponent } from './delete-book/delete-book.component';
 import { ListComponent } from './list/list.component';
 import { UpdateBookComponent } from './update-book/update-book.component';
+import { RolGuardGuard } from '../rol-guard.guard';
 
 
 const routes: Routes = [
     {
       path: '',
       children: [
-        { path: 'addBook', component: AddBookComponent },
-        { path: 'deleteBook', component: DeleteBookComponent },
+        { path: 'addBook',canActivate:[RolGuardGuard], component: AddBookComponent },
+        { path: 'deleteBook',canActivate:[RolGuardGuard], component: DeleteBookComponent },
         { path: 'list', component: ListComponent },
-        { path: 'updateBook', component: UpdateBookComponent },
+        { path: 'updateBook',canActivate:[RolGuardGuard], component: UpdateBookComponent },
         { path: '**', redirectTo: 'books' }
       ]
     }

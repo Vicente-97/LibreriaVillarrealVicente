@@ -19,7 +19,7 @@ export class AuthService {
   };
 
   url:string = 'http://localhost:8080/signin'
- 
+ usuarioActual!:userCompleto
  
 
   constructor(private http: HttpClient) { }
@@ -36,7 +36,8 @@ export class AuthService {
       localStorage.setItem("jwt", resp.token)
       const decodedToken :userCompleto = jwt_decode(resp.token);
       localStorage.setItem("role", decodedToken.role)
-     
+      localStorage.setItem("username", decodedToken.sub)
+      
         return of(true);
       }), catchError(error => {
         localStorage.removeItem("jwt");
@@ -51,6 +52,11 @@ export class AuthService {
       
     }
     
+  //   getCurrentUser(username:string):Observable <userCompleto> {
+  //      return this.http.get<userCompleto>(environment.apiUrl+'/user'+username)
+  // }
+
+
     //Método para hacer logout
     logout() {
       localStorage.setItem("authenticated", "false")

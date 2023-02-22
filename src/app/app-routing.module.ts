@@ -6,6 +6,7 @@ import { NotFoundComponent } from './shared/not-found/not-found.component';
 import { HomeModule } from './home/home.module';
 import {  AuthGuardian } from './guardian.service';
 import { RolGuardGuard } from './rol-guard.guard';
+import { UsersModule } from './users/users.module';
 
 
 const routes: Routes=[
@@ -26,11 +27,10 @@ const routes: Routes=[
     path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomeModule ), canActivate:[AuthGuardian]
   },
-  // {
-  //   path: '',
-  //   redirectTo: 'books',
-  //   pathMatch: 'full'
-  // },
+  { 
+    path: 'user',
+    loadChildren: () => import('./users/users.module').then( m => m.UsersModule ),canActivate:[AuthGuardian]
+  },
   {
     path: '**',
     component: NotFoundComponent

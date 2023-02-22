@@ -1,6 +1,6 @@
 export interface userCompleto{
 
-    username: String,
+    username: string,
     name: String,
     password:String,
     enabled: Boolean,
@@ -8,6 +8,7 @@ export interface userCompleto{
     verificationCode:String,
     role:string,
     img:String
+    sub:string
 }
 
 
