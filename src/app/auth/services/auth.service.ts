@@ -27,14 +27,14 @@ export class AuthService {
   
   //Método para hacer login
   login(username: string, password: string): Observable<boolean> {
-    console.log(username)
-        console.log(password)
+    
     return this.http.post<RespuestaAuth>(this.url, {username, password }, this.httpOptions)
     .pipe(switchMap(resp => {
-      console.log(resp)
       localStorage.setItem("authenticated", "true")
       localStorage.setItem("jwt", resp.token)
+
       const decodedToken :userCompleto = jwt_decode(resp.token);
+
       localStorage.setItem("role", decodedToken.role)
       localStorage.setItem("username", decodedToken.sub)
       
@@ -62,6 +62,7 @@ export class AuthService {
       localStorage.setItem("authenticated", "false")
       localStorage.removeItem('jwt');
       localStorage.removeItem('role');
+      localStorage.removeItem('username');
       //this.authenticated = false;
     }
     
