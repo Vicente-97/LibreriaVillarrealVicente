@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { UserService } from '../services/user.service';
+import { userCompleto, user } from '../../interfaces/userCompleto';
 
 @Component({
   selector: 'app-update-user',
@@ -10,16 +11,30 @@ import { UserService } from '../services/user.service';
 })
 export class UpdateUserComponent {
 
+   public user!: user
+
+  json :any={
+
+    username:'',
+    name:'',
+    password:'',
+    email:''
+
+
+  }
+
+
 
   userDetails!: string|null;
-  constructor(private fb: FormBuilder, private router: Router, private servicio:UserService){}
+  constructor(private fb: FormBuilder, private router: Router, private servicio:UserService, private route : ActivatedRoute){}
 
   myForm: FormGroup= this.fb.group({
     nombre:['', [Validators.required, Validators.minLength(3)]],
     email:['', [Validators.required, Validators.email] ],
     password:['', [Validators.required, Validators.minLength(8)]],
     confirPassword:['', [Validators.required, Validators.minLength(8), this.match('password') ]],
-    fotoPerfil:['',[Validators.required]]
+    fotoPerfil:['',[Validators.required]],
+    fileSource:['', [Validators.required]]
   });
 
   
@@ -46,19 +61,38 @@ export class UpdateUserComponent {
   }
 
   ngOnInit(): void {
-    this.userDetails=localStorage.getItem('username')
+    const id = this.route.snapshot.params["id"] 
+    this.servicio.getUser(id).subscribe({
+      next:(resp=>{
+        this.user=resp
+        
+      })
+    })
+    
   }
 
   saveUpdate(){
-    this.userDetails=localStorage.getItem('username')
-    this.servicio.UpdateUser(this.myForm.get('email')?.value, this.myForm.get('name')?.value, this.myForm.get('password')?.value, this.myForm.get('fotoPerfil')?.value, localStorage.getItem('username')!)
+    
+
+
+     
+    this.json.username=this.user.username
+    this.json.password = this.myForm.get('password')?.value
+    this.json.email= this.myForm.get('email')?.value
+    this.json.name=this.myForm.get('nombre')?.value
+
+
+    this.servicio.UpdateUser(this.json,this.myForm.get('fileSource')?.value,this.user.username)
     .subscribe({
       next:(resp)=> {
         if(resp){
-          alert("cambiado")
+          window.location.reload()
+          this.myForm.reset()
+          alert("USUARIO CAMBIADO")
         }
       },error:(err)=> {
         alert("ERRORRRRRRRRRR")
+        this.myForm.reset()
       },
     })
   }
@@ -71,5 +105,20 @@ export class UpdateUserComponent {
       
     }
   }
+
+
+  onFileChange(event:any) {
+    console.log(event);
+    
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      this.myForm.patchValue({
+        fileSource: file
+      });
+    }
+  }
+
+
+  
 }
 

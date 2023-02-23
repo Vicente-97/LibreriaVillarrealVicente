@@ -3,7 +3,7 @@
 <body>
     <div class="container">
       <h1 class="heading">Actualizar tus datos</h1>
-      <form class="form" action="#" (ngSubmit)="saveUpdate()" [formGroup]="myForm">
+      <form class="form" action="#" (ngSubmit)="saveUpdate()" [formGroup]="myForm" enctype="multipart/form-data">
         <div class="form-group">
 
           <input type="text" class="form-control" placeholder="Nombre" formControlName="nombre"  />
@@ -51,7 +51,8 @@
           
         </div>
         <div class="form-group">
-            <input type="file" class="form-control" placeholder="Photo" formControlName="fotoPerfil" name="fotoPerfil"/>
+            <input type="file" class="form-control" placeholder="Photo" formControlName="fotoPerfil" name="fotoPerfil" (change)="onFileChange($event)"/>
+            
             <i class="fa fa-lock form-control-feedback"></i>
   
   
