@@ -11,6 +11,7 @@ import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
 import { PaginatorModule } from 'primeng/paginator';
 import { AuthInterceptorService } from '../auth-interceptor.service';
+import {DropdownModule} from 'primeng/dropdown'
 
 
 
@@ -32,6 +33,7 @@ import { AuthInterceptorService } from '../auth-interceptor.service';
     ButtonModule,
     PaginatorModule,
     HttpClientModule,
+    DropdownModule
     
     
     

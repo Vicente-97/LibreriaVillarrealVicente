@@ -12,6 +12,7 @@ export class ListComponent implements OnInit {
   public books :Books[]=[]
  
   
+ 
   constructor(private bookServ : BooksService) { }
 
   
