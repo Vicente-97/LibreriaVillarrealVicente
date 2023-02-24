@@ -33,5 +33,13 @@ export class UserService {
     return this.http.get<any>(`${environment.apiUrl}/users/${id}`)
   }
 
+  getUsers():Observable<user[]>{
+    return this.http.get<any[]>(`${environment.apiUrl}/users`)
+  }
+
+
+  deleteUser(username:string):Observable<user>{
+    return this.http.delete<any>(`${environment.apiUrl}/users/${username}`)
+  }
 
 }

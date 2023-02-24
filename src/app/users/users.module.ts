@@ -7,6 +7,10 @@ import { UpdateUserComponent } from './update-user/update-user.component';
 import { UsersRoutingModule } from './users-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TableModule } from 'primeng/table';
+import { ButtonModule } from 'primeng/button';
+import { PaginatorModule } from 'primeng/paginator';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -21,7 +25,11 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     UsersRoutingModule,
     SharedModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    TableModule,
+    ButtonModule,
+    PaginatorModule,
+    RouterModule
   ]
 })
 export class UsersModule { }
