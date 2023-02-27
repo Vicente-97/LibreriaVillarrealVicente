@@ -17,5 +17,9 @@ export class BooksService {
     return this.http.get<Books[]>(environment.apiUrl+'/books')
   }
 
+  getBooksByCat(nameCat:string):Observable<Books[]>{
+    return this.http.get<Books[]>(environment.apiUrl+'/booksByCat/'+nameCat)
+  }
+
 
 }

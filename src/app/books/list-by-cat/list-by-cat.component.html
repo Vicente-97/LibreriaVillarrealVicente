@@ -1,0 +1,36 @@
+
+<app-navbar></app-navbar>
+
+<div class="row" *ngIf="books.length!=0">
+    <div class="espacio">
+
+        <button button type="button" class="btn btn-danger" href="#" [routerLink]="['/category/list']" routerLinkActive="active" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
+            <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
+          </svg>Back</button>
+
+    </div>
+<div class="card cartas" style="width: 18rem;" *ngFor="let book of books">
+    <img src="{{book.img}}" class="card-img-top" alt="imagen_Card">
+    <div class="card-body">
+      <h5 class="card-title">{{book.title}}</h5>
+      <p class="card-text">{{book.isbn}}</p>
+      <p class="card-text">{{book.dateBook}}</p>
+      <p class="card-text">{{book.price}}</p>
+      <p class="card-text">{{book.stock}}</p>
+      <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+      <br>
+    </div>
+  </div>
+</div>
+<div class="row" *ngIf="books.length==0">
+    <h4>No tenemos libros de esa categoria</h4>
+    <div class="col-md-6 espaciado">
+
+        <button button type="button" class="btn btn-danger" href="#" [routerLink]="['/category/list']" routerLinkActive="active" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
+            <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
+          </svg>Back</button>
+
+    </div>
+</div>
+
+<app-footer></app-footer>

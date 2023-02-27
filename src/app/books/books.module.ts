@@ -11,7 +11,10 @@ import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
 import { PaginatorModule } from 'primeng/paginator';
 import { AuthInterceptorService } from '../auth-interceptor.service';
-import {DropdownModule} from 'primeng/dropdown'
+import {DropdownModule} from 'primeng/dropdown';
+import { ListByCatComponent } from './list-by-cat/list-by-cat.component'
+import { RouterModule } from '@angular/router';
+import { InputTextModule } from 'primeng/inputtext';
 
 
 
@@ -23,6 +26,7 @@ import {DropdownModule} from 'primeng/dropdown'
     AddBookComponent,
     UpdateBookComponent,
     DeleteBookComponent,
+    ListByCatComponent,
     
   ],
   imports: [
@@ -33,7 +37,9 @@ import {DropdownModule} from 'primeng/dropdown'
     ButtonModule,
     PaginatorModule,
     HttpClientModule,
-    DropdownModule
+    DropdownModule,
+    RouterModule,
+    InputTextModule
     
     
     

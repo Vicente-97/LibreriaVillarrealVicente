@@ -10,24 +10,34 @@ import { BooksService } from '../services/books.service';
 })
 export class ListComponent implements OnInit {
   public books :Books[]=[]
+  public booksFullDatos:Books[]=[]
  
-  
+  filtroNombre!: string;
  
   constructor(private bookServ : BooksService) { }
 
   
-
+  filtrar() {
+    if(this.filtroNombre.trim().length!=0){
+      this.books = this.books.filter(dato => dato.title.toLowerCase().includes(this.filtroNombre.toLowerCase()));
+    }else{
+      this.books=this.booksFullDatos
+    }
+  }
 
   ngOnInit(): void {
    this.getBooks()
    console.log("peticion")
+
    
 
   }
 
   getBooks(){
     this.bookServ.getBooks().subscribe({
-      next: (resp)=> this.books=resp
+      next: (resp)=> {this.books=resp
+        this.booksFullDatos=resp
+      }
     })
 
   }

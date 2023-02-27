@@ -5,6 +5,7 @@ import { DeleteBookComponent } from './delete-book/delete-book.component';
 import { ListComponent } from './list/list.component';
 import { UpdateBookComponent } from './update-book/update-book.component';
 import { RolGuardGuard } from '../rol-guard.guard';
+import { ListByCatComponent } from './list-by-cat/list-by-cat.component';
 
 
 const routes: Routes = [
@@ -15,6 +16,7 @@ const routes: Routes = [
         { path: 'deleteBook',canActivate:[RolGuardGuard], component: DeleteBookComponent },
         { path: 'list', component: ListComponent },
         { path: 'updateBook',canActivate:[RolGuardGuard], component: UpdateBookComponent },
+        { path: 'listByCat/:id', component: ListByCatComponent },
         { path: '**', redirectTo: 'books' }
       ]
     }
