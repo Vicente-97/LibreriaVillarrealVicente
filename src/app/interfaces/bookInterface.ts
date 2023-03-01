@@ -1,5 +1,5 @@
 export interface Books{
-    isbn:String;
+    isbn:string;
     title:String;
     dateBook:Date;
     author: String;

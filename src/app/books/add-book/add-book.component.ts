@@ -5,6 +5,7 @@ import { Router,  } from '@angular/router';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { CategoryService } from '../../categories/services/categories.service';
 import { UserService } from '../../users/services/user.service';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -86,10 +87,18 @@ export class AddBookComponent implements OnInit {
             if(resp){
               window.location.reload()
               this.myForm.reset()
-              alert("USUARIO Añadido")
+              Swal.fire({
+                icon: 'success',
+                title: 'Libro añadido con éxito',
+                text: '¡Libro Añadido!',
+            })
             }
           },error:(err)=> {
-            alert("ERRORRRRRRRRRR")
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: 'El libro no se puede añadir.',
+            })
             
           },
     
@@ -97,23 +106,18 @@ export class AddBookComponent implements OnInit {
         })
       },
     })
-  
-    
-    
-
    
-    
-    console.log(this.json);
-    
-
-    
 
   }
 
-  // capturar(){
-  //   //pasamos valor a la variable verSeleccion
-  //   this.varSeleccion=this.opcionSeleccionado;
-  // }
+
+
+  save(){
+    if(this.myForm.valid){
+      this.myForm.markAllAsTouched()
+      
+    }
+  }
 
   onFileChange(event:any) {
     console.log(event);

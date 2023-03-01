@@ -54,7 +54,7 @@
           <td >{{book.price}}</td>
           <td >{{book.stock}}</td>
           <td>
-            <button pButton icon="pi pi-pencil" label="Edit"></button>
+            <button pButton icon="pi pi-pencil" label="Edit" class="btn btn-primary" href="#" [routerLink]="['/books/updateBook/',book.isbn]" ></button>
             <button pButton icon="pi pi-trash" label="Delete"></button>
           </td>
         

@@ -8,7 +8,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item espacioHome">
-                <a class="nav-link active" aria-current="page" href="#" [routerLink]="['/home/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+                <a class="nav-link " aria-current="page" href="#" [routerLink]="['/home/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
               </li>
               <li class="nav-item dropdown espacioHome">
                   <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" [routerLink]="['/category/list']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
@@ -30,17 +30,12 @@
                 </ul>
               </li>
 
-              <li class="nav-item dropdown espacioHome" *ngIf="isAdmin">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" [routerLink]="['/user/list']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-                    Users
-              </a>
+              <li class="nav-item espacioHome">
+                <a class="nav-link " aria-current="page" href="#" [routerLink]="['/user/list']"routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Users</a>
+              </li>
+             
                <!-- Primer desplegable -->
-               <ul class="dropdown-menu espacioHome" *ngIf="isAdmin">
-                <li><a class="dropdown-item" href="#"  [routerLink]="['/user/addUser']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Add User</a></li>
-              </ul>
-            </li>
 
-            
               
             </ul>
             <!-- <form class="d-flex" role="search">

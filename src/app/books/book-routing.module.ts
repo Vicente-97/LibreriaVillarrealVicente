@@ -15,7 +15,7 @@ const routes: Routes = [
         { path: 'addBook',canActivate:[RolGuardGuard], component: AddBookComponent },
         { path: 'deleteBook',canActivate:[RolGuardGuard], component: DeleteBookComponent },
         { path: 'list', component: ListComponent },
-        { path: 'updateBook',canActivate:[RolGuardGuard], component: UpdateBookComponent },
+        { path: 'updateBook/:id',canActivate:[RolGuardGuard], component: UpdateBookComponent },
         { path: 'listByCat/:id', component: ListByCatComponent },
         { path: '**', redirectTo: 'books' }
       ]

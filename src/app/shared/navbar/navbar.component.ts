@@ -16,7 +16,7 @@ export class NavbarComponent implements OnInit {
   userDetails!: string|null;
   isAdmin!: boolean;
   isLoggedIn!: boolean;
-  user!:user
+  user:user = {} as user
   username:string|null=localStorage.getItem("username")
   constructor(private servicio: AuthService, private servicioUser: UserService) { }
 

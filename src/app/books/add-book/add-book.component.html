@@ -1,7 +1,8 @@
 <app-navbar></app-navbar>
-
+ 
 <body>
-    <div class="container">
+        <div class="container">
+
       <h1 class="heading">Add Book</h1>
       <form class="form" action="#" (ngSubmit)="saveAdd()" [formGroup]="myForm" enctype="multipart/form-data">
         
@@ -98,12 +99,18 @@
             <input type="file" class="form-control" placeholder="Photo" formControlName="fotoPerfil" name="fotoPerfil" (change)="onFileChange($event)"/>
             
             <i class="fa fa-lock form-control-feedback"></i>
+
+          
   
           </div>
-        <button type="submit" class="btn btn-primary espacioButton">Edit your data</button>
-        <button button type="button" class="btn btn-primary" href="#" [routerLink]="['/user/list']" routerLinkActive="active" >Back</button>
+        <button type="submit" class="btn btn-primary espacioButton" [disabled]="save()">Add Book</button>
+        <button button type="button" class="btn btn-primary" href="#" [routerLink]="['/books/list']" routerLinkActive="active" >Back</button>
       </form>
-    </div>
-  </body>
+        </div>
+    </body>
+
 
 <app-footer></app-footer>
+
+ 
+ 
