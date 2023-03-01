@@ -1,7 +1,7 @@
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
           <a class="navbar-brand" href="#"  [routerLink]="['/home/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Bookshop Villarreal</a>
-          <img src="https://res.cloudinary.com/dx46uo2cv/image/upload/v1675940571/Logo_Librer%C3%ADa_Lineal_Azul_Rosa__1_-removebg-preview_vo8d1z.png" width="100px" height="100px" class="d-block img-fluid" >
+          <img src="https://res.cloudinary.com/dx46uo2cv/image/upload/v1675940571/Logo_Librer%C3%ADa_Lineal_Azul_Rosa__1_-removebg-preview_vo8d1z.png" width="100px" height="100px" class="d-block img-fluid" alt="logo Bookshop">
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -51,7 +51,7 @@
             <ul class="navbar-nav me-auto mb-lg-0">
               <li class="nav-item dropdown dropdown-menu-right">
                 <a class="text-white nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  <img src="https://res.cloudinary.com/dx46uo2cv/image/upload/v1675942692/24-248253_user-profile-default-image-png-clipart-png-download-removebg-preview_trleza.png" class="d-block img-fluid logoUser" width="60px" height="60px" >
+                  <img src="{{user.img}}" class="d-block img-fluid logoUser imgRedonda"  alt="logoUser"width="60px" height="60px" >
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                   <li><a class=" dropdown-item"  (click)="logOut()" [routerLink]="['/']" >Logout</a></li>

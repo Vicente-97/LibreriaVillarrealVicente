@@ -21,5 +21,13 @@ export class BooksService {
     return this.http.get<Books[]>(environment.apiUrl+'/booksByCat/'+nameCat)
   }
 
+  addBook(json:any, fotoperfil:File):Observable<any>{
+
+    const datos: FormData = new FormData();
+    datos.append('book', new Blob([JSON.stringify(json)], {type: 'application/json'}))
+    datos.append('file', fotoperfil, fotoperfil.name);
+
+    return this.http.post<any>(`${environment.apiUrl}/books`,datos)
+  }
 
 }

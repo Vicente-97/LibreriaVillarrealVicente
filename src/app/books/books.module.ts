@@ -15,6 +15,7 @@ import {DropdownModule} from 'primeng/dropdown';
 import { ListByCatComponent } from './list-by-cat/list-by-cat.component'
 import { RouterModule } from '@angular/router';
 import { InputTextModule } from 'primeng/inputtext';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -39,7 +40,9 @@ import { InputTextModule } from 'primeng/inputtext';
     HttpClientModule,
     DropdownModule,
     RouterModule,
-    InputTextModule
+    InputTextModule,
+    ReactiveFormsModule,
+    FormsModule
     
     
     

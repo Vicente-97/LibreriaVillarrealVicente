@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../auth/services/auth.service';
+import { UserService } from '../../users/services/user.service';
+import { user } from '../../interfaces/userCompleto';
 
 
 @Component({
@@ -14,11 +16,21 @@ export class NavbarComponent implements OnInit {
   userDetails!: string|null;
   isAdmin!: boolean;
   isLoggedIn!: boolean;
-  constructor(private servicio: AuthService) { }
+  user!:user
+  username:string|null=localStorage.getItem("username")
+  constructor(private servicio: AuthService, private servicioUser: UserService) { }
 
   ngOnInit(): void {
     this.jwt = localStorage.getItem('jwt');
     this.userDetails=localStorage.getItem('username')
+    if(this.username!=null){
+      this.servicioUser.getUser(this.username).subscribe({
+        next:(resp=>{
+          this.user=resp
+        })
+      })
+    }
+    
 
 
     if(this.jwt){
