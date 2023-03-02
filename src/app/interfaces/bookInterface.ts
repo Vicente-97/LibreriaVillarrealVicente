@@ -5,5 +5,6 @@ export interface Books{
     author: String;
     price: Number;
     stock:Number;
+    
     img:String
 }

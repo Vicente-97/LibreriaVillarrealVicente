@@ -31,7 +31,7 @@ export class BooksService {
   }
 
 
-  getBook(id:string):Observable<Books>{
+  getBook(id:string):Observable<any>{
     return this.http.get<any>(`${environment.apiUrl}/books/${id}`)
   }
 
@@ -41,6 +41,10 @@ export class BooksService {
     datos.append('file', fotoperfil, fotoperfil.name);
 
     return this.http.put<any>(`${environment.apiUrl}/books/${id}`,datos)
+  }
+
+  deletBook(id:string):Observable<any>{
+    return this.http.delete<any>(`${environment.apiUrl}/books/${id}`)
   }
 
 }

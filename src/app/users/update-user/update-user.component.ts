@@ -11,7 +11,7 @@ import { userCompleto, user } from '../../interfaces/userCompleto';
 })
 export class UpdateUserComponent {
 
-   public user!: user
+   public user: user={} as user
 
   json :any={
 
@@ -42,6 +42,7 @@ export class UpdateUserComponent {
     return this.myForm?.controls[field].errors
     && this.myForm?.controls[field].touched && this.myForm?.controls[field].invalid
   }
+  
 
   //Para validar la contraseña, igual que el anterior pero también recoge la opción del objeto mismatch. Para que funcione tenemos que ponerle el ? para decirle que sabemos que el objeto puede venir nulo.
   isValidPass(field: string){

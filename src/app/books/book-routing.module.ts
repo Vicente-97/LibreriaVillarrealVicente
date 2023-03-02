@@ -13,7 +13,7 @@ const routes: Routes = [
       path: '',
       children: [
         { path: 'addBook',canActivate:[RolGuardGuard], component: AddBookComponent },
-        { path: 'deleteBook',canActivate:[RolGuardGuard], component: DeleteBookComponent },
+        { path: 'deleteBook/:id',canActivate:[RolGuardGuard], component: DeleteBookComponent },
         { path: 'list', component: ListComponent },
         { path: 'updateBook/:id',canActivate:[RolGuardGuard], component: UpdateBookComponent },
         { path: 'listByCat/:id', component: ListByCatComponent },
