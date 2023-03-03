@@ -11,6 +11,8 @@ import { user } from '../../interfaces/userCompleto';
 })
 export class NavbarComponent implements OnInit {
 
+
+
   jwt: string | null = null;
  
   userDetails!: string|null;

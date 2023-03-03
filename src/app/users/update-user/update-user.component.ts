@@ -73,10 +73,6 @@ export class UpdateUserComponent {
   }
 
   saveUpdate(){
-    
-
-
-     
     this.json.username=this.user.username
     this.json.password = this.myForm.get('password')?.value
     this.json.email= this.myForm.get('email')?.value

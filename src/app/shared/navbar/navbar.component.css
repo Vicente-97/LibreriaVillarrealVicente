@@ -17,3 +17,15 @@ html {
     height: 40px;
     color: white;
   }
+
+  .cart-icon .cart-item-count {
+    animation: bounce 0.5s;
+  }
+  
+  @keyframes bounce {
+    0% { transform: scale(1); }
+    25% { transform: scale(1.5); }
+    50% { transform: scale(1); }
+    75% { transform: scale(1.5); }
+    100% { transform: scale(1); }
+  }

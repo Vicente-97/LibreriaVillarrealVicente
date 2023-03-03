@@ -11,12 +11,14 @@ import { HomeModule } from './home/home.module';
 import { AuthService } from './auth/services/auth.service';
 import { AuthGuardian } from './guardian.service';
 import { AuthInterceptorService } from './auth-interceptor.service';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    
     
     
   ],

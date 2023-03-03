@@ -7,6 +7,7 @@ import { HomeModule } from './home/home.module';
 import {  AuthGuardian } from './guardian.service';
 import { RolGuardGuard } from './rol-guard.guard';
 import { UsersModule } from './users/users.module';
+import { ShoppingModule } from './shopping-cart/shopping.module';
 
 
 const routes: Routes=[
@@ -30,6 +31,10 @@ const routes: Routes=[
   { 
     path: 'user',
     loadChildren: () => import('./users/users.module').then( m => m.UsersModule ),canActivate:[AuthGuardian]
+  },
+  { 
+    path: 'shopping',
+    loadChildren: () => import('./shopping-cart/shopping.module').then( m => m.ShoppingModule ),canActivate:[AuthGuardian]
   },
   {
     path: '**',
