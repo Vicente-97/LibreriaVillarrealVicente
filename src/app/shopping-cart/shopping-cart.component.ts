@@ -20,6 +20,9 @@ export class ShoppingCartComponent {
   total= this.shopping.getTotal();
 
 
+  updateTotalPrice(): void {
+    this.total = this.shopping.getTotal();
+  }
   clearCart() {
     this.shopping.clearCart();
     this.books = [];
@@ -37,7 +40,10 @@ export class ShoppingCartComponent {
 
     updateItem(item: CarritoItem, cantidad: number) {
       this.shopping.actualizarCantidad(item, cantidad);
+      this.shopping.getTotal()
+      this.updateTotalPrice()
       this.shopping.saveCartToSession()
+      
     }
 
 }

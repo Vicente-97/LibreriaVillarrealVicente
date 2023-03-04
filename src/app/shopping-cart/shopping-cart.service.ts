@@ -41,12 +41,9 @@ export class ShoppingCartService {
     return this.books;
   }
 
-  getTotal() {
-    let total = 0;
-    this.books.forEach(book => {
-      total += book.book.price;
-    });
-    return total;
+  getTotal() {   
+      return this.books.reduce((total, item) => total + (item.book.price * item.cantidad), 0);
+    
   }
 
    loadCartFromSession() {
@@ -72,6 +69,6 @@ export class ShoppingCartService {
     if (nuevaCantidad) {
       item.cantidad = nuevaCantidad;
     }
-    this.getTotal()
+  
   }
 }
