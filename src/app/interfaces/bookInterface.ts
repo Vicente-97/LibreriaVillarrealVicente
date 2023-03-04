@@ -3,8 +3,9 @@ export interface Books{
     title:String;
     dateBook:Date;
     author: String;
-    price: Number;
+    price: number;
     stock:Number;
+    quantity:number
     
     img:String
 }

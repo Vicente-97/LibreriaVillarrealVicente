@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Books } from '../../interfaces/bookInterface';
 import { BooksService } from '../services/books.service';
+import { ShoppingCartService } from '../../shopping-cart/shopping-cart.service';
 
 @Component({
   selector: 'app-list ',
@@ -14,7 +15,13 @@ export class ListComponent implements OnInit {
  
   filtroNombre!: string;
  
-  constructor(private bookServ : BooksService) { }
+  constructor(private bookServ : BooksService, private shopping : ShoppingCartService) { }
+
+  addToCart(book:Books){
+    this.shopping.agregarAlCarrito(book)
+    window.sessionStorage.setItem('carrito', JSON.stringify(this.shopping.books));
+  }
+  
 
   
   filtrar() {

@@ -14,10 +14,14 @@ import { ShoppingRoutingModule } from './shopping-routing.module';
 
 @NgModule({
   declarations: [
-  ShoppingCartComponent
+  ShoppingCartComponent,
+  
   ],
   imports: [
-   ShoppingRoutingModule
+   ShoppingRoutingModule,
+   SharedModule,
+   CommonModule,
+   FormsModule
    
   ],
   exports:[
