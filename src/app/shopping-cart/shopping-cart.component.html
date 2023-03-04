@@ -16,7 +16,7 @@
         <td>{{ item.book.title }}</td>
         <td>{{ item.book.price | currency }}</td>
         <td>
-            <input type="number" [(ngModel)]="item.cantidad" (ngModelChange)="updateItem(item, $event)" min="1">
+            <input type="number" [(ngModel)]="item.cantidad" (ngModelChange)="updateItem(item, $event)" min="1" max="{{item.book.stock}}">
 
           </td>
         <button (click)="removeItem(item.book)">Eliminar</button>
@@ -29,5 +29,6 @@
   
 <p>Total: {{total}} $</p>
 <button (click)="clearCart()">Clear cart</button>
+<button (click)="addBuy()">Buy Now</button>
     
 <app-footer></app-footer>

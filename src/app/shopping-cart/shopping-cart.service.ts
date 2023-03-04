@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Books } from '../interfaces/bookInterface';
 import { CarritoItem } from '../interfaces/carritoInterface';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +11,7 @@ export class ShoppingCartService {
 
   books : CarritoItem[]=[]
 
-  constructor() { 
+  constructor(private http: HttpClient) { 
 
     this.loadCartFromSession();
   }
@@ -70,5 +72,12 @@ export class ShoppingCartService {
       item.cantidad = nuevaCantidad;
     }
   
+  }
+
+  addBuy(json:any, username:string){
+    const datos: FormData = new FormData();
+    datos.append('isbn', new Blob([JSON.stringify(json)], {type: 'application/json'}))
+    datos.append('username', username);
+    return this.http.post(`${environment.apiUrl}/buy`, datos)
   }
 }

@@ -21,7 +21,9 @@ import { ShoppingRoutingModule } from './shopping-routing.module';
    ShoppingRoutingModule,
    SharedModule,
    CommonModule,
-   FormsModule
+   FormsModule,
+   HttpClientModule,
+   RouterModule
    
   ],
   exports:[
