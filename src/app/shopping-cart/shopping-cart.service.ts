@@ -81,7 +81,10 @@ export class ShoppingCartService {
   
   }
 
+  //metodo para poder realizar la peticion de compra.
   addBuy(json:any, cantidad:any, username:string):Observable<any>{
+
+    //creamos un formdata para pasarle los datos que recibira nuestro controlador spring.
     const datos: FormData = new FormData();
     
     console.log(cantidad);
@@ -90,20 +93,22 @@ export class ShoppingCartService {
     
 
 
-
+    //creamos un array de json que recibira un isbn que será el libro en si y 
+    //un parámetro cantidad que será la cantidad de compra de ese producto
     const jsonIsbn = [{
       "isbn": json,
       "cantidad": cantidad, 
     }];
     
-    console.log(jsonIsbn);
     
     
     
+    //le añadimos al form data los campos y decimos que vamos a añadirle un tipo Blob que será nuestro array de json, lo transformacion a json 
+    //le añadimos la cabecera application json y tmb le añadimos otro parámetro que será el username para poder asignarle esa compra, ya que es una relacion M:N
     datos.append('isbn', new Blob([JSON.stringify(jsonIsbn)], {type: 'application/json'}))
     datos.append('username', username);
     
-    
+    //hacemos la peticion de tipo post, la enviroment, es la url del despliegue de la aplicación y le añadimos nuestro FormData.
     return this.http.post<any>(`${environment.apiUrl}/buy`, datos)
   }
 
