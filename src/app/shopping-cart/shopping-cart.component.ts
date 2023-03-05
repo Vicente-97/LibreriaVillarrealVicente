@@ -3,6 +3,7 @@ import { ShoppingCartService } from './shopping-cart.service';
 import { Books } from '../interfaces/bookInterface';
 import { CarritoItem } from '../interfaces/carritoInterface';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -24,7 +25,7 @@ export class ShoppingCartComponent {
     cantidad:0
   }
 
-  constructor( private shopping : ShoppingCartService) { }
+  constructor( private shopping : ShoppingCartService, private route: Router) { }
 
  books = this.shopping.getItems();
 
@@ -85,7 +86,8 @@ export class ShoppingCartComponent {
                   title: 'Compra exitosa',
                   text: '¡Disfuta sus libros!',
               })
-
+                this.shopping.clearCart()
+                this.route.navigate(['/books/list'])
               }
             }
           })
