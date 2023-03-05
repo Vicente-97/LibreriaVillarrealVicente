@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ShoppingCartService } from './shopping-cart.service';
 import { Books } from '../interfaces/bookInterface';
 import { CarritoItem } from '../interfaces/carritoInterface';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -11,7 +12,17 @@ import { CarritoItem } from '../interfaces/carritoInterface';
 export class ShoppingCartComponent {
 
 
+  json :any={
 
+    isbn:'',
+    title:'',
+    dateBook:'',
+    author:'',
+    price:'',
+    stock:'',
+    category:'',
+    cantidad:0
+  }
 
   constructor( private shopping : ShoppingCartService) { }
 
@@ -46,4 +57,41 @@ export class ShoppingCartComponent {
       
     }
 
+
+    addBuy(){
+      for(let item of this.books){
+        this.json.isbn=item.book.isbn
+        this.json.title=item.book.title
+        this.json.datebook=item.book.dateBook
+        this.json.author=item.book.author
+        this.json.price=item.book.price
+        this.json.stock=item.book.stock
+        this.json.category=item.book.category
+        this.json.cantidad= item.cantidad
+        let cantidad= item.cantidad
+        let username= localStorage.getItem("username") 
+        console.log(cantidad);
+        console.log(username);
+        console.log(this.json);
+        
+        
+        
+        if(username!=null){
+          this.shopping.addBuy(this.json,cantidad, username).subscribe({
+            next:(resp)=> {
+              if(resp){
+                Swal.fire({
+                  icon: 'success',
+                  title: 'Compra exitosa',
+                  text: '¡Disfuta sus libros!',
+              })
+
+              }
+            }
+          })
+        }
+        cantidad=0
+      }
+      
+    }
 }

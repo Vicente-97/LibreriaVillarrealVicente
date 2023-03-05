@@ -1,3 +1,4 @@
+import { Categories } from './categoriesInterface';
 export interface Books{
     isbn:string;
     title:String;
@@ -6,6 +7,7 @@ export interface Books{
     price: number;
     stock:Number;
     quantity:number
+    category:Categories
     
     img:String
 }

@@ -20,15 +20,19 @@
 
           </td>
         <button (click)="removeItem(item.book)">Eliminar</button>
-        <td>
+        <!-- <td>
             <button (click)="updateItem(item,item.cantidad)">Actualizar</button>
-          </td>
+          </td> -->
       </tr>
     </tbody>
   </table>
-  
+
 <p>Total: {{total}} $</p>
 <button (click)="clearCart()">Clear cart</button>
-<button (click)="addBuy()">Buy Now</button>
-    
+<form method="post" action="#"  (ngSubmit)="addBuy()" enctype="multipart/form-data">
+
+  
+  <button type="submit">Buy Now</button> 
+     
+</form>
 <app-footer></app-footer>

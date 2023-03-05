@@ -3,6 +3,7 @@ import { Books } from '../interfaces/bookInterface';
 import { CarritoItem } from '../interfaces/carritoInterface';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -22,11 +23,17 @@ export class ShoppingCartService {
   // }
 
   agregarAlCarrito(book: Books) {
+    let encontrado=false;
+    
     let itemExistente = this.books.find(item => item.book?.isbn === book.isbn);
-  
+    for(let item of this.books){
+      if(item.book.isbn==book.isbn){
+        encontrado=true;
+      }
+    }
     if (itemExistente) {
       itemExistente.cantidad++;
-    } else {
+    } else if(encontrado==false) {
       this.books.push({ book, cantidad: 1 });
     }
   }
@@ -74,10 +81,31 @@ export class ShoppingCartService {
   
   }
 
-  addBuy(json:any, username:string){
+  addBuy(json:any, cantidad:any, username:string):Observable<any>{
     const datos: FormData = new FormData();
-    datos.append('isbn', new Blob([JSON.stringify(json)], {type: 'application/json'}))
+    
+    console.log(cantidad);
+    console.log(username);
+    console.log(json);
+    
+
+
+
+    const jsonIsbn = [{
+      "isbn": json,
+      "cantidad": cantidad, 
+    }];
+    
+    console.log(jsonIsbn);
+    
+    
+    
+    datos.append('isbn', new Blob([JSON.stringify(jsonIsbn)], {type: 'application/json'}))
     datos.append('username', username);
-    return this.http.post(`${environment.apiUrl}/buy`, datos)
+    
+    
+    return this.http.post<any>(`http://localhost:8080/buy`, datos)
   }
+
+  // ${environment.apiUrl}
 }
