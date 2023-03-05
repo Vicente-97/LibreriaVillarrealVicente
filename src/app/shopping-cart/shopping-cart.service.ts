@@ -104,8 +104,8 @@ export class ShoppingCartService {
     datos.append('username', username);
     
     
-    return this.http.post<any>(`http://localhost:8080/buy`, datos)
+    return this.http.post<any>(`${environment.apiUrl}`, datos)
   }
 
-  // ${environment.apiUrl}
+   
 }
