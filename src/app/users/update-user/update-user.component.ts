@@ -105,7 +105,7 @@ export class UpdateUserComponent {
 
 
   onFileChange(event:any) {
-    console.log(event);
+    
     
     if (event.target.files.length > 0) {
       const file = event.target.files[0];

@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
             text: '¡Bienvenido de nuevo!',
           });
           this.isLoggedIn=true;
-          this.router.navigate(['/home']);
+          this.router.navigate(['/']);
         }
         else {
           Swal.fire({

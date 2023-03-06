@@ -12,9 +12,9 @@ const routes: Routes = [
     {
       path: '',
       children: [
-        { path: 'addUser', component: AdduserComponent },
-        { path: 'deleteUser/:id', component: DeleteUserComponent  },
-        { path: 'list', component: ListComponent },
+        { path: 'addUser', canActivate:[RolGuardGuard],component: AdduserComponent },
+        { path: 'deleteUser/:id', canActivate:[RolGuardGuard], component: DeleteUserComponent  },
+        { path: 'list',  canActivate:[RolGuardGuard],component: ListComponent },
         { path: 'updateUser/:id', component: UpdateUserComponent },
         { path: '**', redirectTo: 'user' }
       ]

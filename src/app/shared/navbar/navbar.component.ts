@@ -12,7 +12,7 @@ import { user } from '../../interfaces/userCompleto';
 export class NavbarComponent implements OnInit {
 
 
-
+  logueado!:boolean;
   jwt: string | null = null;
  
   userDetails!: string|null;
@@ -20,6 +20,8 @@ export class NavbarComponent implements OnInit {
   isLoggedIn!: boolean;
   user:user = {} as user
   username:string|null=localStorage.getItem("username")
+
+  
   constructor(private servicio: AuthService, private servicioUser: UserService) { }
 
   ngOnInit(): void {
@@ -29,6 +31,7 @@ export class NavbarComponent implements OnInit {
       this.servicioUser.getUser(this.username).subscribe({
         next:(resp=>{
           this.user=resp
+          this.logueado=true
         })
       })
     }
@@ -40,12 +43,17 @@ export class NavbarComponent implements OnInit {
     }
   }
 
+  userLogueado(){
+    if(localStorage.getItem("authenticated")==="true"){
+      this.logueado=true;
+    }
+  }
 
-  
 
   logOut():void{
     this.servicio.logout();
     this.isLoggedIn=false;
+    window.location.reload()
   }
 
 }

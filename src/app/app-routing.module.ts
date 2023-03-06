@@ -14,7 +14,7 @@ const routes: Routes=[
   { 
   
     path: '',
-    loadChildren: () => import('./auth/auth.module').then( m => m.AuthModule )
+    loadChildren: () => import('./home/home.module').then( m => m.HomeModule )
   },{ 
   
     path: 'books',
@@ -25,8 +25,8 @@ const routes: Routes=[
     loadChildren: () => import('./categories/categories.module').then( m => m.CategoriesModule ),canActivate:[AuthGuardian]
   },
   { 
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomeModule ), canActivate:[AuthGuardian]
+    path: 'login',
+    loadChildren: () => import('./auth/auth.module').then( m => m.AuthModule )
   },
   { 
     path: 'user',
