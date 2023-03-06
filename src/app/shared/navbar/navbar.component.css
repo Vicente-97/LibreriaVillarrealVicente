@@ -21,6 +21,7 @@ html {
   .cart-icon .cart-item-count {
     animation: bounce 0.5s;
   }
+
   
   @keyframes bounce {
     0% { transform: scale(1); }

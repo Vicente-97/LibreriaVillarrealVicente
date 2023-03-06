@@ -2,12 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../auth/services/auth.service';
 import { UserService } from '../../users/services/user.service';
 import { user } from '../../interfaces/userCompleto';
+import { CarritoItem } from '../../interfaces/carritoInterface';
+import { ShoppingCartService } from '../../shopping-cart/shopping-cart.service';
 
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  styleUrls: ['./navbar.component.css'],
+  
 })
 export class NavbarComponent implements OnInit {
 
@@ -22,9 +25,13 @@ export class NavbarComponent implements OnInit {
   username:string|null=localStorage.getItem("username")
 
   
-  constructor(private servicio: AuthService, private servicioUser: UserService) { }
+  
+  constructor(private servicio: AuthService, private servicioUser: UserService, private serviceShop:ShoppingCartService) { }
+
+  carrito: CarritoItem[]=[]
 
   ngOnInit(): void {
+    this.carrito= this.serviceShop.getItems()
     this.jwt = localStorage.getItem('jwt');
     this.userDetails=localStorage.getItem('username')
     if(this.username!=null){

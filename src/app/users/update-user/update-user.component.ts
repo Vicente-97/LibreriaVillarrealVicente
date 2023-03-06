@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
 import { Router, ActivatedRoute } from '@angular/router';
 import { UserService } from '../services/user.service';
 import { userCompleto, user } from '../../interfaces/userCompleto';
+import Swal from 'sweetalert2';
+import { AuthService } from '../../auth/services/auth.service';
 
 @Component({
   selector: 'app-update-user',
@@ -12,7 +14,9 @@ import { userCompleto, user } from '../../interfaces/userCompleto';
 export class UpdateUserComponent {
 
    public user: user={} as user
-
+  jwt = localStorage.getItem("jwt")
+  username!:string
+  userActual!:user
   json :any={
 
     username:'',
@@ -26,7 +30,7 @@ export class UpdateUserComponent {
 
 
   userDetails!: string|null;
-  constructor(private fb: FormBuilder, private router: Router, private servicio:UserService, private route : ActivatedRoute){}
+  constructor(private fb: FormBuilder, private router: Router, private servicio:UserService, private route : ActivatedRoute, private authSer: AuthService){}
 
   myForm: FormGroup= this.fb.group({
     nombre:['', [Validators.required, Validators.minLength(3)]],
@@ -63,13 +67,24 @@ export class UpdateUserComponent {
 
   ngOnInit(): void {
     const id = this.route.snapshot.params["id"] 
-    this.servicio.getUser(id).subscribe({
+    if(this.jwt!=null){
+      this.username=this.authSer.returnUser(this.jwt)
+    }
+
+    this.servicio.getUser(this.username).subscribe({
       next:(resp=>{
-        this.user=resp
         
+        this.userActual=resp
+        this.servicio.getUser(id).subscribe({
+          next:(resp)=> {
+            this.user=resp
+            if(this.userActual.username!=this.user.username){
+              this.router.navigate(['**'])
+            }
+          },
+        })
       })
     })
-    
   }
 
   saveUpdate(){
@@ -85,10 +100,19 @@ export class UpdateUserComponent {
         if(resp){
           window.location.reload()
           this.myForm.reset()
-          alert("USUARIO CAMBIADO")
+          Swal.fire({
+            icon: 'success',
+            title: 'User Updated',
+            text: '¡User Update sucess!',
+        });
         }
       },error:(err)=> {
-        alert("ERRORRRRRRRRRR")
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'sorry!',
+          footer: '<a href="">Why do I have this issue?</a>'
+        })
         this.myForm.reset()
       },
     })

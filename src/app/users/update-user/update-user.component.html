@@ -94,7 +94,7 @@
              
               <div class="col-sm-9">
                 
-            <input type="file" class="form-control" placeholder="Photo" formControlName="fotoPerfil" name="fotoPerfil" (change)="onFileChange($event)" />
+            <input type="file" class="form-control" placeholder="Photo" formControlName="fotoPerfil" name="fotoPerfil" (change)="onFileChange($event)" required/>
             
             <i class="fa fa-lock form-control-feedback"></i>
       
@@ -109,7 +109,7 @@
             
             
             <div align="right">
-                <button type="submit" class="btn btn-primary espacioButton"[disabled]="save()" >Update user</button>
+                <button type="submit" class="btn btn-primary espacioButton"[disabled]="myForm.invalid" >Update user</button>
                 <button button type="button" class="btn btn-danger" href="#" [routerLink]="['/books/list']" routerLinkActive="active" >Back</button>
               </div>
               

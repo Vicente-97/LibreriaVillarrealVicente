@@ -63,6 +63,7 @@ export class AuthService {
       localStorage.removeItem('jwt');
       localStorage.removeItem('role');
       localStorage.removeItem('username');
+      sessionStorage.removeItem('carrito')
       //this.authenticated = false;
     }
     
@@ -72,6 +73,18 @@ export class AuthService {
     }
 
 
+    returnUser(jwt: string):any{
+      const decodedToken :any = jwt_decode(jwt);
+
+
+      if(decodedToken){
+        const username=decodedToken.sub
+
+        return username;
+      }
+
+
+    }
 
     register(username:string,email:string,password:string):Observable<boolean>{
       console.log(username,password)

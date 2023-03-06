@@ -18,7 +18,7 @@ const routes: Routes=[
   },{ 
   
     path: 'books',
-    loadChildren: () => import('./books/books.module').then( m => m.BooksModule ),canActivate:[AuthGuardian]
+    loadChildren: () => import('./books/books.module').then( m => m.BooksModule ),
   },
   { 
     path: 'category',

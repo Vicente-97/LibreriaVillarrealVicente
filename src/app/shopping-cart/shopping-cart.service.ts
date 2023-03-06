@@ -45,6 +45,7 @@ export class ShoppingCartService {
 
 
   clearCart() {
+  
     this.books = [];
     this.saveCartToSession()
     return this.books;
@@ -87,9 +88,6 @@ export class ShoppingCartService {
     //creamos un formdata para pasarle los datos que recibira nuestro controlador spring.
     const datos: FormData = new FormData();
     
-    console.log(cantidad);
-    console.log(username);
-    console.log(json);
     
 
 

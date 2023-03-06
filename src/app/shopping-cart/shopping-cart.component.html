@@ -19,7 +19,7 @@
             <input type="number" [(ngModel)]="item.cantidad" (ngModelChange)="updateItem(item, $event)" min="1" max="{{item.book.stock}}">
 
           </td>
-        <button (click)="removeItem(item.book)">Eliminar</button>
+        <button class="borrar-btn" (click)="removeItem(item.book)">Delete</button>
         <!-- <td>
             <button (click)="updateItem(item,item.cantidad)">Actualizar</button>
           </td> -->
@@ -27,12 +27,15 @@
     </tbody>
   </table>
 
-<p>Total: {{total}} $</p>
-<button (click)="clearCart()">Clear cart</button>
-<form method="post" action="#"  (ngSubmit)="addBuy()" enctype="multipart/form-data">
-
+<h5><p>Total: {{total}} $</p></h5>
+<div class="botones-container">
+  <form method="post" action="#"  (ngSubmit)="addBuy()" enctype="multipart/form-data">
   
-  <button type="submit">Buy Now</button> 
-     
-</form>
+    
+    <button class="comprar-btn" type="submit">Buy Now</button> 
+       
+  </form>
+<!-- <button class= "borrar-btn" (click)="clearCart()">Clear cart</button> -->
+</div>
+<br>
 <app-footer></app-footer>

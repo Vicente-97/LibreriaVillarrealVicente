@@ -37,8 +37,10 @@ export class ShoppingCartComponent {
   }
   clearCart() {
     this.shopping.clearCart();
-    this.books = [];
-    this.total = 0;
+    this.books = this.shopping.getItems();
+    this.shopping.saveCartToSession()
+    this.total=this.shopping.getTotal();
+    
   }
 
   removeItem(book: Books) {

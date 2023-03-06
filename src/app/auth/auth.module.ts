@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { VerifyComponent } from './verify/verify.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -23,7 +24,7 @@ import { VerifyComponent } from './verify/verify.component';
     RouterModule,
     ReactiveFormsModule,
     HttpClientModule,
-    
+    SharedModule
     
   ]
 })

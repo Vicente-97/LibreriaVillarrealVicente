@@ -1,11 +1,14 @@
-/* Estilos para el fondo */
-body {
-    background-image: url("https://images6.alphacoders.com/407/407515.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 100vh;
-    overflow: hidden;
+
+  
+  .form-bg {
+    position: absolute; /* Establecemos una posición absoluta para la imagen de fondo */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* La imagen de fondo debe estar detrás del formulario */
+    background: url("https://images6.alphacoders.com/407/407515.jpg") center/cover no-repeat fixed; /* Agregamos la imagen de fondo */
+    filter: blur(5px); /* Aplicamos un filtro de desenfoque */
   }
   
   /* Estilos para la tarjeta de registro */

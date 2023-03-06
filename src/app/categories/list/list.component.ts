@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Categories } from '../../interfaces/categoriesInterface';
 import { CategoryService } from '../services/categories.service';
+import { AuthService } from '../../auth/services/auth.service';
 
 @Component({
   selector: 'app-list',
@@ -10,11 +11,17 @@ import { CategoryService } from '../services/categories.service';
 export class ListComponent implements OnInit {
 
  public categories: Categories[]=[];
- 
-  constructor(private categoriesServ: CategoryService) { }
+ isAdmin=false;
+ jwt: string | null = null;
+
+  constructor(private categoriesServ: CategoryService, private servicio: AuthService) { }
 
   ngOnInit(): void {
+    this.jwt = localStorage.getItem('jwt');
     this.getCategoriesInit()
+    if(this.jwt){
+      this.isAdmin = this.servicio.isUserAdmin(this.jwt);
+    }
   }
 
   getCategoriesInit() {
@@ -24,5 +31,14 @@ export class ListComponent implements OnInit {
         error: (error) => console.log(error)
       })
   }
+
+  isAdminRol(){
+    let rol = localStorage.getItem("role")
+    if(rol==="ADMIN_ROLE"){
+      this.isAdmin=true;
+    }
+  }
+
+  
 
 }

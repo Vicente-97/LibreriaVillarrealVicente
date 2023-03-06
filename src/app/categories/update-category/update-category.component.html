@@ -1,6 +1,6 @@
-<body>
+<div class="form-bg"></div> 
     <div class="container">
-      <h1 class="heading">Editar Categoria</h1>
+      <h1 class="heading">Edit Category</h1>
       <form class="form"  action="#" method="post" #updateCategory="ngForm" (ngSubmit)="updateCategories()">
         <div class="form-group">
           <label for="input2">Name:</label>
@@ -12,7 +12,7 @@
 
         </div>
         <div class="form-group">
-          <label for="input2">Descripcion</label>
+          <label for="input2">Description:</label>
               <input type="text" class="form-control" id="descripcion" placeholder="Introduce la descripcion" required [(ngModel)]="description" name="description" minlength="3">
 
               <span class="form-text text-danger" *ngIf="nombreValido('description')" >
@@ -24,8 +24,8 @@
 
         </div>
        
-         <button type="submit" class="btn btn-primary espacioButton">Editar Categoria</button>
+         <button type="submit" class="btn btn-primary espacioButton">Edit Category</button>
          <button button type="button" class="btn btn-primary" href="#" [routerLink]="['/category/list']" routerLinkActive="active" >Back</button>
       </form>
     </div>
-  </body>
+ 

@@ -1,13 +1,15 @@
-/* Estilos para el fondo */
-body {
-    background-image: url("https://images.alphacoders.com/104/thumb-1920-1046781.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 100vh;
-    overflow: hidden;
+
+  .form-bg {
+    position: absolute; /* Establecemos una posición absoluta para la imagen de fondo */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* La imagen de fondo debe estar detrás del formulario */
+    background: url("https://images.alphacoders.com/104/thumb-1920-1046781.jpg") center/cover no-repeat fixed; /* Agregamos la imagen de fondo */
+    filter: blur(5px); /* Aplicamos un filtro de desenfoque */
   }
-  
+
   /* Estilos para la tarjeta de registro */
   .container {
     width: 400px;
@@ -19,6 +21,9 @@ body {
     padding: 30px 35px;
     border-radius: 15px;
     overflow: hidden;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    
   }
   
   .heading {

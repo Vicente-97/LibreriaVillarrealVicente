@@ -2,7 +2,7 @@
 <form class="login-form login" action="#" method="post" #loginForm="ngForm" (ngSubmit)="signIn()"> 
   <div class="form-inner">
     <div class="text-center mb-4">
-      <img class="mb-3" src="https://res.cloudinary.com/dx46uo2cv/image/upload/v1675940571/Logo_Librer%C3%ADa_Lineal_Azul_Rosa__1_-removebg-preview_vo8d1z.png" alt="Logo" width="72" height="72">
+      <img class="mb-3" src="https://res.cloudinary.com/dx46uo2cv/image/upload/v1675940571/Logo_Librer%C3%ADa_Lineal_Azul_Rosa__1_-removebg-preview_vo8d1z.png" alt="Logo" width="85" height="85">
       <h2 class="form-title mb-3">Iniciar Sesión</h2>
     </div>
     <div class="form-floating mb-3">
@@ -27,7 +27,9 @@
 
     </div>
     <button type="submit" class="btn btn-primary w-100" [disabled]="loginForm.invalid"
-    >Iniciar Sesión</button>
-    <button type="submit" class="btn btn-secondary w-100" id="register-btn" [routerLink]="['/register']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Registrarse</button>
+    >Log in</button>
+    <button type="submit" class="btn btn-secondary w-100" id="register-btn" [routerLink]="['register']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Register</button>
+    <button button type="button" class="btn btn-secondary w-100" href="#" [routerLink]="['/']"  routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Back to Home</button>
   </div>
 </form>
+

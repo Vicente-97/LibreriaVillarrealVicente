@@ -2,27 +2,44 @@ import { Component, OnInit } from '@angular/core';
 import { Books } from '../../interfaces/bookInterface';
 import { BooksService } from '../services/books.service';
 import { ShoppingCartService } from '../../shopping-cart/shopping-cart.service';
+import { trigger, state, style, animate, transition } from '@angular/animations';
+import { AuthService } from '../../auth/services/auth.service';
+
 
 @Component({
   selector: 'app-list ',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.css'],
-  
+  animations: [
+    trigger('agregarProducto', [
+      state('void', style({ transform: 'scale(0)' })),
+      transition(':enter', [
+        animate('0.2s ease-out', style({ transform: 'scale(1.2)' })),
+        animate('0.2s', style({ transform: 'scale(1)' })),
+      ]),
+    ]),
+  ],
 })
+
 export class ListComponent implements OnInit {
+
+  isAdmin=false;
+  jwt: string | null = null;
   public books :Books[]=[]
   public booksFullDatos:Books[]=[]
  
   filtroNombre!: string;
  
-  constructor(private bookServ : BooksService, private shopping : ShoppingCartService) { }
+  constructor(private bookServ : BooksService, private shopping : ShoppingCartService, private servicio: AuthService) { }
+
+  
 
   addToCart(book:Books){
     this.shopping.agregarAlCarrito(book)
     window.sessionStorage.setItem('carrito', JSON.stringify(this.shopping.books));
   }
   
-
+  
   
   filtrar() {
     if(this.filtroNombre.trim().length!=0){
@@ -34,7 +51,12 @@ export class ListComponent implements OnInit {
 
   ngOnInit(): void {
    this.getBooks()
-   console.log("peticion")
+   this.jwt = localStorage.getItem('jwt');
+   
+   if(this.jwt){
+     this.isAdmin = this.servicio.isUserAdmin(this.jwt);
+   }
+
 
    
 
