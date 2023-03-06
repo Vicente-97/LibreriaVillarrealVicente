@@ -92,6 +92,7 @@ export class AddBookComponent implements OnInit {
                 title: 'Libro añadido con éxito',
                 text: '¡Libro Añadido!',
             })
+            this.router.navigate(['/'])
             }
           },error:(err)=> {
             Swal.fire({

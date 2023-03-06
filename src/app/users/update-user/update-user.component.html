@@ -19,10 +19,10 @@
           <div class="card-body">
             <div class="row">
               <div class="col-sm-3">
-                <p class="mb-0">Username</p>
+                <p class="mb-0">Name:</p>
               </div>
               <div class="col-sm-9">
-                <label for="input2">username:</label>
+                <label for="input2">Name:</label>
                 <input type="text" class="form-control" placeholder="Nombre" formControlName="nombre"  [(ngModel)]="user.username" name="nombre"/>
       
                 <span class="form-text text-danger" *ngIf="isValidField('nombre')">
@@ -109,7 +109,7 @@
             
             
             <div align="right">
-                <button type="submit" class="btn btn-primary espacioButton"[disabled]="myForm.invalid" >Update user</button>
+                <button type="submit" class="btn btn-primary espacioButton"[disabled]="save()" >Update user</button>
                 <button button type="button" class="btn btn-danger" href="#" [routerLink]="['/books/list']" routerLinkActive="active" >Back</button>
               </div>
               
