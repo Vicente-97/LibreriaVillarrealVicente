@@ -32,7 +32,7 @@
   <form method="post" action="#"  (ngSubmit)="addBuy()" enctype="multipart/form-data">
   
     
-    <button class="comprar-btn" type="submit">Buy Now</button> 
+    <button *ngIf="books.length" class="comprar-btn" type="submit">Buy Now</button> 
        
   </form>
 <!-- <button class= "borrar-btn" (click)="clearCart()">Clear cart</button> -->
