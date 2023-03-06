@@ -61,11 +61,11 @@
             <ul class="navbar-nav me-auto mb-lg-0">
               <li class="nav-item dropdown dropdown-menu-right">
                 <a class="text-white nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" *ngIf="logueado" >
-                  <img src="{{user.img}}" default class="d-block img-fluid logoUser imgRedonda"  alt="logoUser" width="50px" height="100px" >
+                  <img src="{{user.img}}"  default class="d-block img-fluid logoUser imgRedonda"  alt="logoUser" width="50px" height="100px" >
                 </a>
-                <a *ngIf="!logueado" class="text-white me-4" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  <button class=" btn btn-primary" [routerLink]="['/login']"> Log in</button>
-                </a>
+                
+                  <button  *ngIf="!logueado" class=" btn btn-primary" [routerLink]="['/login']"> Log in</button>
+                
                 <!-- <a class="text-white nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" *ngIf="!logueado">
                   <img src="https://res.cloudinary.com/dx46uo2cv/image/upload/v1675942692/24-248253_user-profile-default-image-png-clipart-png-download-removebg-preview_trleza.png" default class="d-block img-fluid logoUser imgRedonda"  alt="logoUser" width="50px" height="100px" >
                 </a> -->

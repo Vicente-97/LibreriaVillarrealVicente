@@ -11,15 +11,16 @@
     </thead>
     <tbody>
       <tr *ngFor="let item of books">
-        <td><img [src]="item.book.img" width="120" height="120"></td>
+        <td><img [src]="item.book.img" alt="imgBook"width="120" height="120"></td>
         <td>{{ item.book.isbn }}</td>
         <td>{{ item.book.title }}</td>
         <td>{{ item.book.price | currency }}</td>
         <td>
-            <input type="number" [(ngModel)]="item.cantidad" (ngModelChange)="updateItem(item, $event)" min="1" max="{{item.book.stock}}">
+          
+            <input type="number"  aria-label="quantity" [(ngModel)]="item.cantidad" (ngModelChange)="updateItem(item, $event)" min="1" max="{{item.book.stock}}">
 
           </td>
-        <button class="borrar-btn" (click)="removeItem(item.book)">Delete</button>
+        <button class="borrar-btn" aria-label="delete"  (click)="removeItem(item.book)">Delete</button>
         <!-- <td>
             <button (click)="updateItem(item,item.cantidad)">Actualizar</button>
           </td> -->
