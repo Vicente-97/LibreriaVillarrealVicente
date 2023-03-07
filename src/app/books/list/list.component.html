@@ -16,7 +16,7 @@
 
     </div>
     <div align="right"class="col-6 mb-4">
-      <h5>Filtrado por Title: </h5><input  pInputText [(ngModel)]="filtroNombre" placeholder="Busca un modelo..." (keydown.enter)="filtrar()">
+      <h5>Filtering by title: </h5><input  pInputText [(ngModel)]="filtroNombre" placeholder="Busca un modelo..." (keydown.enter)="filtrar()">
       <button  pButton (click)="filtrar()">Filtrar</button>
     </div>
 
@@ -31,8 +31,7 @@
 
             
     <ng-template pTemplate="header">
-     <!-- <h5>Filtrado por Title: </h5> <input pInputText [(ngModel)]="filtroNombre" (keydown.enter)="filtrar()" placeholder="Filtrar por nombre">
-        <button pButton (click)="filtrar()">Filtrar</button> -->
+    
         <tr>
           <th pSortableColumn="isbn">Isbn<p-sortIcon field="isbn"></p-sortIcon></th>
           <th>Imagen</th>

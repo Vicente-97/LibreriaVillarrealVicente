@@ -20,7 +20,7 @@
             <div class="card-body">
               <div class="row">
                 <div class="col-sm-3">
-                  <p class="mb-0">Isbn</p>
+                  <p class="mb-0">Isbn:</p>
                 </div>
                 <div class="col-sm-9">
                     <input type="text" class="form-control" placeholder="Isbn" formControlName="isbn" [value]="book.isbn" readonly />                
@@ -30,7 +30,7 @@
               <hr>
               <div class="row">
                 <div class="col-sm-3">
-                  <p class="mb-0">Título:</p>
+                  <p class="mb-0">Title:</p>
                 </div>
                 <div class="col-sm-9">
                     <input type="text" class="form-control" placeholder="title" formControlName="title" [value]="book.title"  readonly   />
@@ -39,7 +39,7 @@
               <hr>
               <div class="row">
                 <div class="col-sm-3">
-                  <p class="mb-0">Fecha :</p>
+                  <p class="mb-0">Date:</p>
                 </div>
                 <div class="col-sm-9">
                     <input type="date" class="form-control" placeholder="Date Book" formControlName="date" [value]="book.dateBook"  readonly  />
@@ -50,7 +50,7 @@
               <hr>
               <div class="row">
                 <div class="col-sm-3">
-                  <p class="mb-0">author::</p>
+                  <p class="mb-0">Author:</p>
                 </div>
                
                 <div class="col-sm-9">
@@ -119,92 +119,6 @@
 </div>
 </div>
 </section>
-<!-- <body>
-        <div class="container d-flex " id="page-container">
-            <div id="content-wrap">
-      <h1 class="heading">Update Book</h1>
-      <form class="form" action="#" (ngSubmit)="saveDelete()" [formGroup]="myForm" >
-        <div class="form-group" align="center" >
-            <label for="input2"></label>
-            <img src="{{book.img}}" alt="avatar"
-                 class="rounded-circle img-fluid" style="width: 150px;"> 
-                </div>
-        <div class="form-group">
-          <label for="input2">Isbn:</label>
-          <input type="text" class="form-control" placeholder="Isbn" formControlName="isbn" [value]="book.isbn" readonly />
-          <i class="fa fa-user form-control-feedback"></i>
-
-          
-
-        </div>
-
-        <div class="form-group">
-            <label for="input2">Title:</label>
-            <input type="text" class="form-control" placeholder="title" formControlName="title" [value]="book.title"  readonly   />
-            <i class="fa fa-user form-control-feedback"></i>
-  
-            
-  
-  
-          </div>
-
-          <div class="form-group">
-            <label for="input2">DateBook</label>
-            <input type="date" class="form-control" placeholder="Date Book" formControlName="date" [value]="book.dateBook"  readonly  />
-            <i class="fa fa-user form-control-feedback"></i>
-  
-            
-  
-  
-          </div>
-
-          <div class="form-group">
-            <label for="input2">Author</label>
-            <input type="text" class="form-control" placeholder="Author" formControlName="author" [value]="book.author"  readonly  />
-            <i class="fa fa-user form-control-feedback"></i>
-  
-          
-  
-  
-          </div>
-
-          <div class="form-group">
-            <label for="input2">Price:</label>
-            <input type="number" class="form-control" placeholder="price" formControlName="price" [value]="book.price"  readonly  />
-            <i class="fa fa-user form-control-feedback"></i>
-  
-           
-  
-  
-          </div>
-
-          <div class="form-group">
-            <label for="input2">Stock:</label>
-            <input type="number" class="form-control" placeholder="Stock" formControlName="stock" [value]="book.stock"  readonly  />
-            <i class="fa fa-user form-control-feedback"></i>
-  
-  
-          </div>
-
-          <div class="form-group">
-            <label for="input2">Category</label>
-            <input type="text" class="form-control"  formControlName="stock" [value]="category.name"     readonly/>
-            <i class="fa fa-user form-control-feedback"></i>
-  
-           
-  
-  
-          </div>
-
-          
-    
-        <button type="submit" class="btn btn-danger espacioButton" [disabled]="save()">Delete Book</button>
-        <button button type="button" class="btn btn-primary" href="#" [routerLink]="['/books/list']" routerLinkActive="active" >Back</button>
-      </form>
-        </div>
-        </div>
-    </body> -->
-
 
 
     <app-footer id="footer"></app-footer>

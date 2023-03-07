@@ -23,24 +23,28 @@ import { AuthService } from '../../auth/services/auth.service';
 
 export class ListComponent implements OnInit {
 
+  //variables que nos ayudarán en nuestra lógica, tanto para saber si es admin,
+  // como para localizar el token o los libros y libros de respaldo.
   isAdmin=false;
   jwt: string | null = null;
   public books :Books[]=[]
   public booksFullDatos:Books[]=[]
  
+  //variable para poder realizar el filtrado.
   filtroNombre!: string;
  
   constructor(private bookServ : BooksService, private shopping : ShoppingCartService, private servicio: AuthService) { }
 
   
 
+  //Método del carrito para poder añadir al carrito un libro.
   addToCart(book:Books){
     this.shopping.agregarAlCarrito(book)
     window.sessionStorage.setItem('carrito', JSON.stringify(this.shopping.books));
   }
   
   
-  
+  //Método que nos proporciona la lógica necesaria para poder filtrar por títutlo.
   filtrar() {
     if(this.filtroNombre.trim().length!=0){
       this.books = this.books.filter(dato => dato.title.toLowerCase().includes(this.filtroNombre.toLowerCase()));
@@ -49,6 +53,7 @@ export class ListComponent implements OnInit {
     }
   }
 
+  //Recuperamos el token y vemos si es Admin utilizando nuestro servicio.
   ngOnInit(): void {
    this.getBooks()
    this.jwt = localStorage.getItem('jwt');
@@ -62,6 +67,7 @@ export class ListComponent implements OnInit {
 
   }
 
+  //Método para obtener una lista de libros de respaldo.
   getBooks(){
     this.bookServ.getBooks().subscribe({
       next: (resp)=> {this.books=resp

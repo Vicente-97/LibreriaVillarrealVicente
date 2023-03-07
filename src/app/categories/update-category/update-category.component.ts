@@ -12,6 +12,7 @@ import Swal from 'sweetalert2';
 })
 export class UpdateCategoryComponent implements OnInit {
 
+  //Establecemos nuestro formulario.
   @ViewChild('updateCategory') updateCategoryForm!: NgForm
 
   name:string=''
@@ -21,16 +22,18 @@ export class UpdateCategoryComponent implements OnInit {
 
   ngOnInit(): void {
     this.name= this.route.snapshot.params['id']
-    console.log(this.name);
+    
     
   }
 
 
+  //Método para poder validar los campos.
   nombreValido(campo:string): boolean {
     return this.updateCategoryForm?.controls[campo]?.invalid
     && this.updateCategoryForm?.controls[campo]?.touched;
   }
 
+  //Método para poder updatear categorias.
   updateCategories(){
     const name : string = this.name
     const description:string = this.description
@@ -42,15 +45,15 @@ export class UpdateCategoryComponent implements OnInit {
           
             Swal.fire({
               icon: 'success',
-              title: 'Formulario Editado con éxito',
-              text: '¡Categoria añadida!',
+              title: 'Form completed successfully',
+              text: '¡Categoria Updated!',
           });
           this.router.navigate(['/category/list'])
       }else{
         Swal.fire({
           icon: 'error',
           title: 'Oops...',
-          text: 'Algo debe haber salido mal!',
+          text: 'Something has gone wrong!',
           footer: '<a href="">Why do I have this issue?</a>'
         })
       }}}})

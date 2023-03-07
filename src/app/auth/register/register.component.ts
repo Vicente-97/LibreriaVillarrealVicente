@@ -16,6 +16,7 @@ export class RegisterComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private router: Router, private servicio : AuthService) { }
 
+  //definimos nuestro formulario Reactive.
   myForm: FormGroup= this.fb.group({
     nombre:['', [Validators.required, Validators.minLength(3)]],
     email:['', [Validators.required, Validators.email] ],
@@ -23,6 +24,7 @@ export class RegisterComponent implements OnInit {
     confirPassword:['', [Validators.required, Validators.minLength(8), this.match('password') ]]
   });
 
+  //Método que completa el registro.
   saveRegister(){
     const username:string =this.myForm.get('nombre')?.value
     const password:string = this.myForm.get('password')?.value
@@ -37,8 +39,8 @@ export class RegisterComponent implements OnInit {
             
               Swal.fire({
                 icon: 'success',
-                title: 'Revisa el correo electrónico y verifica el correo',
-                text: '¡Bienvenido a la Biblioteca Villarreal!',
+                title: 'Please check your email and verify your account',
+                text: '¡Welcome to Libreria Villarreal, please verify your account!',
             });
             this.router.navigate(['/'])
 
@@ -46,13 +48,14 @@ export class RegisterComponent implements OnInit {
             Swal.fire({
               icon: 'error',
               title: 'Oops...',
-              text: 'Algo debe haber salido mal!',
+              text: 'Something has gone wrong!',
               footer: '<a href="">Why do I have this issue?</a>'
             })
           }}}})
        }
   
 
+  //Método que valida los campos
   isValidField(field: string){
     return this.myForm?.controls[field].errors
     && this.myForm?.controls[field].touched && this.myForm?.controls[field].invalid

@@ -1,51 +1,24 @@
-<!-- <body>
-    <div class="container formulario">
-      <div class="row">
-        <div class="col-sm-12 col-md-6 offset-md-3">
-          <form  action="#" method="post" #addCategory="ngForm" (ngSubmit)="addCategories()">
-            <div class="form-group">
-              <label for="input1">Nombre</label>
-              <input type="text" class="form-control" id="nombre" placeholder="Introduce el nombre de la categoria" required [(ngModel)]="name" ngModel name="name" minlength="3">
-
-              <span class="form-text text-danger" *ngIf="nombreValido('name')" >
-                La contraseña debe de tener más de 3 caracteres
-              </span>
-            </div>
-            <div class="form-group">
-              <label for="input2">Descripcion</label>
-              <input type="text" class="form-control" id="descripcion" placeholder="Introduce la descripcion de la categoria" required [(ngModel)]="description" name="description" minlength="3">
-
-              <span class="form-text text-danger" *ngIf="nombreValido('description')" >
-                La contraseña debe de tener más de 3 caracteres
-              </span>
-            </div>
-            <button type="submit" class="btn btn-primary">Enviar</button>
-          </form>
-        </div>
-      </div>
-    </div>
-    Cargamos los scripts de Bootstrap -->
 
 
   <body>
     <div class="container">
-      <h1 class="heading">Añadir Categoria</h1>
+      <h1 class="heading">Add Category</h1>
       <form class="form"  action="#" method="post" #addCategory="ngForm" (ngSubmit)="addCategories()">
         <div class="form-group">
           <label for="input2">Name:</label>
           <input type="text" class="form-control" id="nombre" placeholder="Introduce el nombre" required [(ngModel)]="name" ngModel name="name" minlength="3">
 
               <span class="form-text text-danger" *ngIf="nombreValido('name')" >
-                La contraseña debe de tener más de 3 caracteres
+                Name must be longer than 3 letters
               </span>
 
         </div>
         <div class="form-group">
-          <label for="input2">Descripcion</label>
+          <label for="input2">Description:</label>
               <input type="text" class="form-control" id="descripcion" placeholder="Introduce la descripcion" required [(ngModel)]="description" name="description" minlength="3">
 
               <span class="form-text text-danger" *ngIf="nombreValido('description')" >
-                La contraseña debe de tener más de 3 caracteres
+                Description must be longer than 3 letters
               </span>
 
           
@@ -53,8 +26,8 @@
 
         </div>
        
-         <button type="submit" class="btn btn-primary espacioButton">Añadir Categoria</button>
-         <button button type="button" class="btn btn-primary" href="#" [routerLink]="['/category/list']" routerLinkActive="active" >Back</button>
+         <button type="submit" class="btn btn-primary espacioButton">Add Category</button>
+         <button button type="button" class="btn btn-danger" href="#" [routerLink]="['/category/list']" routerLinkActive="active" >Back</button>
       </form>
     </div>
   </body>

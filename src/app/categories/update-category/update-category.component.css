@@ -1,12 +1,4 @@
-/* Estilos para el fondo
-body {
-    background-image: url("https://images6.alphacoders.com/407/407515.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 100vh;
-    overflow: hidden;
-  } */
+
 
   .form-bg {
     position: absolute; /* Establecemos una posición absoluta para la imagen de fondo */

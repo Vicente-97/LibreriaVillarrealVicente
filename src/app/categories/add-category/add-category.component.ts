@@ -11,8 +11,10 @@ import { Router } from '@angular/router';
 })
 export class AddCategoryComponent implements OnInit {
 
+  //establecemos nuestro formulario.
   @ViewChild('addCategory') addCategoryForm!: NgForm
 
+  //variasbles vinculadas con NGModel
   name:string=''
   description:string =''
 
@@ -21,12 +23,14 @@ export class AddCategoryComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  //Método para poder validar los campos del formulario.
   nombreValido(campo:string): boolean {
     return this.addCategoryForm?.controls[campo]?.invalid
     && this.addCategoryForm?.controls[campo]?.touched;
   }
 
 
+  //Método para poder añadir una categoria.
   addCategories(){
     const name : string = this.name
     const description:string = this.description
@@ -38,15 +42,15 @@ export class AddCategoryComponent implements OnInit {
           
             Swal.fire({
               icon: 'success',
-              title: 'Formulario completado con éxito',
-              text: '¡Categoria añadida!',
+              title: 'Form completed successfully',
+              text: '¡Category added!',
           });
           this.route.navigate(['/category/list'])
       }else{
         Swal.fire({
           icon: 'error',
           title: 'Oops...',
-          text: 'Algo debe haber salido mal!',
+          text: 'Something has gone wrong!',
           footer: '<a href="">Why do I have this issue?</a>'
         })
       }}}})

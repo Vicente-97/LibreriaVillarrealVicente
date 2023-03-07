@@ -14,13 +14,16 @@ import Swal from 'sweetalert2';
 })
 export class DeleteBookComponent implements OnInit {
 
+  //nos servirá para mostrar nuestro libro
   book:any= {} as any
 
 
   constructor(private route: ActivatedRoute, private servicio:BooksService, private servicioCat:CategoryService, private fb : FormBuilder, private routes: Router) { }
 
+  //podremos obtener nuestra categoria.
   category:Categories={} as Categories
 
+  //definimos nuestro formulario.
   myForm: FormGroup= this.fb.group({
     isbn:['', [Validators.required, Validators.minLength(3)]],
     title:['', [Validators.required, Validators.minLength(5)] ],
@@ -30,6 +33,7 @@ export class DeleteBookComponent implements OnInit {
     stock:['', [Validators.required, Validators.min(5) ]],
   })
 
+  //localizamos los parámetros y obtenemos el libro y la categoria para mostrarselo al cliente para que pueda ver que esta borranado.
   ngOnInit(): void {
     
     const isbn=this.route.snapshot.params['id']
@@ -49,6 +53,7 @@ export class DeleteBookComponent implements OnInit {
 
   }
 
+  //Método para poder borrar nuestro libro que es mostrado.
   saveDelete(){
 
     this.servicio.deletBook(this.book.isbn).subscribe({
@@ -68,7 +73,7 @@ export class DeleteBookComponent implements OnInit {
         Swal.fire({
           icon: 'error',
           title: 'Oops...',
-          text: 'Cant delete workbook',
+          text: 'Cant delete Book',
         })
         
       },

@@ -11,13 +11,11 @@ import { AuthService } from '../services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
+  //Definimos nuestro formulario.
   @ViewChild('loginForm') loginForm!: NgForm
 
   
-  // initForm = {
-  //   username: "",
-  //   password: ""
-  // }
+  //Variable para ver si esta logueado.
   isLoggedIn!: boolean;
 
 
@@ -28,6 +26,7 @@ export class LoginComponent implements OnInit {
     this.isLoggedIn = this.loginService.isAuthenticated();
   }
 
+  //Método para iniciar sesion.
   signIn():void{
     console.log('Username: ', this.loginForm.value.username, 'Password: ', this.loginForm.value.password)
     this.loginService.login(this.loginForm.value.username, this.loginForm.value.password)
@@ -36,8 +35,8 @@ export class LoginComponent implements OnInit {
         if (resp) {
           Swal.fire({
             icon: 'success',
-            title: 'Inicio de sesión exitoso',
-            text: '¡Bienvenido de nuevo!',
+            title: 'Successful session start',
+            text: '¡Welcome!',
           });
           this.isLoggedIn=true;
           this.router.navigate(['/']);
@@ -46,7 +45,7 @@ export class LoginComponent implements OnInit {
           Swal.fire({
             icon: 'error',
             title: 'Oops...',
-            text: 'Nombre de usuario o contraseña incorrectos.',
+            text: 'Incorrect username or password.',
           });
 
           
@@ -56,12 +55,14 @@ export class LoginComponent implements OnInit {
     
   }
 
+  //método para logOut
   logOut():void{
     this.loginService.logout();
     this.isLoggedIn=false;
   }
   
 
+  //método para comprobar las validaciones.
   nombreValido(campo:string): boolean {
     return this.loginForm?.controls[campo]?.invalid
     && this.loginForm?.controls[campo]?.touched;

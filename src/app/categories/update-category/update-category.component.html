@@ -7,7 +7,7 @@
           <input type="text" class="form-control" id="nombre" placeholder="Introduce el nombre" required [(ngModel)]="name" ngModel name="name" minlength="3" readonly>
 
               <span class="form-text text-danger" *ngIf="nombreValido('name')" >
-                El nombre debe de tener más de 3 caracteres
+                Name must be longer than 3 letters
               </span>
 
         </div>
@@ -16,7 +16,7 @@
               <input type="text" class="form-control" id="descripcion" placeholder="Introduce la descripcion" required [(ngModel)]="description" name="description" minlength="3">
 
               <span class="form-text text-danger" *ngIf="nombreValido('description')" >
-                La descripcion debe de tener más de 3 caracteres
+                Description must be longer than 3 letters
               </span>
 
           
@@ -25,7 +25,7 @@
         </div>
        
          <button type="submit" class="btn btn-primary espacioButton">Edit Category</button>
-         <button button type="button" class="btn btn-primary" href="#" [routerLink]="['/category/list']" routerLinkActive="active" >Back</button>
+         <button button type="button" class="btn btn-danger" href="#" [routerLink]="['/category/list']" routerLinkActive="active" >Back</button>
       </form>
     </div>
  

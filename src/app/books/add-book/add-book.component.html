@@ -22,7 +22,7 @@
                 <i class="fa fa-user form-control-feedback"></i>
       
                 <span class="form-text text-danger" *ngIf="isValidField('isbn')">
-                  Debe de ser un isbn válido
+                  must be a valid ISBN
                 </span>
                              
               </div>
@@ -30,14 +30,14 @@
             <hr>
             <div class="row">
               <div class="col-sm-3">
-                <p class="mb-0">Título:</p>
+                <p class="mb-0">Tittle:</p>
               </div>
               <div class="col-sm-9">
                 <input type="text" class="form-control" placeholder="title" formControlName="title"   />
                 <i class="fa fa-user form-control-feedback"></i>
       
                 <span class="form-text text-danger" *ngIf="isValidField('title')">
-                  Debe de ser un titulo de más de 5 letras y unico.
+                  It must be a title of more than 5 letters and unique
                 </span>
       
               </div>
@@ -45,14 +45,14 @@
             <hr>
             <div class="row">
               <div class="col-sm-3">
-                <p class="mb-0">Fecha :</p>
+                <p class="mb-0">Date:</p>
               </div>
               <div class="col-sm-9">
                 <input type="date" class="form-control" placeholder="Date Book" formControlName="date"   />
                 <i class="fa fa-user form-control-feedback"></i>
       
                 <span class="form-text text-danger" *ngIf="isValidField('date')">
-                  La fecha es requerida.
+                  Date is required!
                 </span>
               </div>
               
@@ -60,7 +60,7 @@
             <hr>
             <div class="row">
               <div class="col-sm-3">
-                <p class="mb-0">author:</p>
+                <p class="mb-0">Author:</p>
               </div>
              
               <div class="col-sm-9">
@@ -68,7 +68,7 @@
                 <i class="fa fa-user form-control-feedback"></i>
       
                 <span class="form-text text-danger" *ngIf="isValidField('author')">
-                  El campo author es requerido.
+                  Author is required!
                 </span>
               </div>
               
@@ -85,7 +85,7 @@
                 <i class="fa fa-user form-control-feedback"></i>
       
                 <span class="form-text text-danger" *ngIf="isValidField('price')">
-                  el precio debe de ser mayor de 5
+                  The price must be greater than 5
                 </span>
                
               </div>
@@ -103,7 +103,7 @@
                 <i class="fa fa-user form-control-feedback"></i>
       
                 <span class="form-text text-danger" *ngIf="isValidField('stock')">
-                  Debe de tener un stock mayor que 5
+                  The stock must be greater than 5
                 </span>
               </div>
           

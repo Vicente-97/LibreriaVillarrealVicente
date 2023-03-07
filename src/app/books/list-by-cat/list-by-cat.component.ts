@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BooksService } from '../services/books.service';
 import { Books } from '../../interfaces/bookInterface';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-list-by-cat',
@@ -15,7 +16,7 @@ export class ListByCatComponent {
   constructor(private route : ActivatedRoute, private servicio:BooksService ) { }
 
 
-
+// Lógica sencilla, solo recuperamos el parámetro y obtenemos los libros de una categoría.
   ngOnInit(): void {
 
     const id=this.route.snapshot.params['id']
@@ -23,7 +24,12 @@ export class ListByCatComponent {
       next:(resp)=> {
         this.books=resp
       },error:(err)=> {
-        alert("error")
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Something has gone wrong!',
+          footer: '<a href="">Why do I have this issue?</a>'
+        })
       },
     })
 

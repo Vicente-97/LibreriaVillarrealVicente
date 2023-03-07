@@ -52,9 +52,7 @@ export class AuthService {
       
     }
     
-  //   getCurrentUser(username:string):Observable <userCompleto> {
-  //      return this.http.get<userCompleto>(environment.apiUrl+'/user'+username)
-  // }
+  
 
 
     //Método para hacer logout
@@ -86,6 +84,7 @@ export class AuthService {
 
     }
 
+    //Logica para poder registrar al usuario.
     register(username:string,email:string,password:string):Observable<boolean>{
       console.log(username,password)
       
@@ -100,7 +99,7 @@ export class AuthService {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
-        text: 'Algo debe haber salido mal!',
+        text: 'Something has gone wrong!',
         footer: '<a href="">Why do I have this issue?</a>'
       })
       
@@ -109,7 +108,7 @@ export class AuthService {
     }))
     }
 
-    
+    //Método que verifica si el user es ADMIN o no, descodificando el Token.
     isUserAdmin(jwt: string): boolean {
       // Decodifica el token JWT
       const decodedToken :userCompleto = jwt_decode(jwt);
@@ -123,6 +122,7 @@ export class AuthService {
     }
 
 
+    //Método de verificación.
     verify(username:string, code:string):Observable<boolean>{
         return this.http.get<any>(environment.apiUrl+`/verify?code=${code}&username=${username}`)
         .pipe(switchMap(resp=>{
@@ -135,7 +135,7 @@ export class AuthService {
         Swal.fire({
           icon: 'error',
           title: 'Oops...',
-          text: 'Algo debe haber salido mal al verificar!',
+          text: 'Something has gone wrong!',
           footer: '<a href="">Why do I have this issue?</a>'
         })
         

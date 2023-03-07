@@ -37,6 +37,7 @@ export class AddBookComponent implements OnInit {
   constructor(private fb: FormBuilder, private router: Router, private servicio:BooksService, private servicioCat: CategoryService, private servicioUser:UserService) { }
 
 
+  //Definimos nuestro Formulario Reactivve
   myForm: FormGroup= this.fb.group({
     isbn:['', [Validators.required, Validators.minLength(3)]],
     title:['', [Validators.required, Validators.minLength(5)] ],
@@ -50,6 +51,7 @@ export class AddBookComponent implements OnInit {
   });
 
 
+  //Obtenemos nuestras categorias nada más acceder a la página
   ngOnInit(): void {
     this.servicioCat.getCategories().subscribe({
       next:(resp)=> {
@@ -63,12 +65,14 @@ export class AddBookComponent implements OnInit {
   }
 
 
+  //Método para la validación del formulario
   isValidField(field: string){
     return this.myForm?.controls[field].errors
     && this.myForm?.controls[field].touched && this.myForm?.controls[field].invalid
   }
 
 
+  //Método para poder añadir un libro, obtenemos las categorias y añadimos una imagen y el libro.
   saveAdd(){
     this.json.isbn=this.myForm.get('isbn')?.value
     this.json.title = this.myForm.get('title')?.value
@@ -89,8 +93,8 @@ export class AddBookComponent implements OnInit {
               this.myForm.reset()
               Swal.fire({
                 icon: 'success',
-                title: 'Libro añadido con éxito',
-                text: '¡Libro Añadido!',
+                title: 'Book successfully added',
+                text: '¡Book added!',
             })
             this.router.navigate(['/'])
             }
@@ -98,7 +102,7 @@ export class AddBookComponent implements OnInit {
             Swal.fire({
               icon: 'error',
               title: 'Oops...',
-              text: 'El libro no se puede añadir.',
+              text: 'Something has gone wrong!',
             })
             
           },
@@ -120,6 +124,7 @@ export class AddBookComponent implements OnInit {
     }
   }
 
+  //Método necesario para poder transformar la foto y subirla.
   onFileChange(event:any) {
     console.log(event);
     
