@@ -37,7 +37,7 @@ export class AddCategoryComponent implements OnInit {
     this.servicio.addCategory(name, description).subscribe({
       next: (resp)=> {
         if (resp) {
-          console.log(resp)
+          
           if(this.addCategoryForm.valid){
           
             Swal.fire({
@@ -53,7 +53,16 @@ export class AddCategoryComponent implements OnInit {
           text: 'Something has gone wrong!',
           footer: '<a href="">Why do I have this issue?</a>'
         })
-      }}}})
+      }}},error:(err)=> {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Something has gone wrong!',
+          footer: '<a href="">Why do I have this issue?</a>'
+        })
+        this.route.navigate(['/category/list'])
+      },
+    })
   }
 
 }
