@@ -22,7 +22,7 @@
                 <p class="mb-0">Isbn</p>
               </div>
               <div class="col-sm-9">
-                <input type="text" class="form-control" placeholder="Isbn" formControlName="isbn" [value]="book.isbn" readonly   />
+                <input type="text" class="form-control" placeholder="Isbn"  [value]="book.isbn" readonly   />
                 <i class="fa fa-user form-control-feedback"></i>
       
                 <span class="form-text text-danger" *ngIf="isValidField('isbn')">
@@ -149,7 +149,7 @@
             
             
             <div align="right">
-                <button type="submit" class="btn btn-primary espacioButton" [disabled]="myForm.invalid">Update Book</button>
+                <button type="submit" class="btn btn-primary espacioButton" [disabled]="save()">Update Book</button>
                 <button button type="button" class="btn btn-danger" href="#" [routerLink]="['/books/list']" routerLinkActive="active" >Back</button>
               </div>
               
