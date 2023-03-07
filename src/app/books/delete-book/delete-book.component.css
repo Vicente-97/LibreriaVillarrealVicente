@@ -1,9 +1,8 @@
 .imgRedonda {
-  width:110px;
-  height:80px;
+  width:120px;
+  height:125px;
   border-radius:100px;
 }
-
   #page-container {
     position: relative;
     min-height: 100vh;

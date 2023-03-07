@@ -50,4 +50,7 @@ table {
     cursor: pointer;
   }
   
+  .espaciado{
+    margin: 0.5em;
+  }
   
