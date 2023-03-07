@@ -39,7 +39,7 @@ export class AddBookComponent implements OnInit {
 
   //Definimos nuestro Formulario Reactivve
   myForm: FormGroup= this.fb.group({
-    isbn:['', [Validators.required, Validators.minLength(3)]],
+    isbn:['', [Validators.required, Validators.minLength(5)]],
     title:['', [Validators.required, Validators.minLength(5)] ],
     date:['', [Validators.required]],
     author:['', [Validators.required ]],
@@ -96,7 +96,7 @@ export class AddBookComponent implements OnInit {
                 title: 'Book successfully added',
                 text: '¡Book added!',
             })
-            this.router.navigate(['/'])
+            this.router.navigate(['/books'])
             }
           },error:(err)=> {
             Swal.fire({

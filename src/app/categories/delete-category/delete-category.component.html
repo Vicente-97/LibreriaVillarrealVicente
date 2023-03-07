@@ -4,7 +4,7 @@
       <form class="form"  action="#" method="post" #deleteCategory="ngForm" (ngSubmit)="deleteCategories()">
         <div class="form-group">
           <label for="input2">Name:</label>
-          <input type="text" class="form-control" id="nombre" placeholder="Introduce el nombre" required [(ngModel)]="name" ngModel name="name" readonly>
+          <input type="text" class="form-control" id="nombre" placeholder="Enter the name" required [(ngModel)]="name" ngModel name="name" readonly>
 
               <span class="form-text text-danger" *ngIf="nombreValido('name')" >
                 Name must be longer than 3 letters
@@ -13,7 +13,7 @@
         </div>
         <div class="form-group">
           <label for="input2">Description:</label>
-              <input type="text" class="form-control" id="descripcion" placeholder="Introduce la descripcion" required [(ngModel)]="description" name="description"  readOnly>
+              <input type="text" class="form-control" id="descripcion" placeholder="Enter the Description" required [(ngModel)]="description" name="description"  readOnly>
 
               <span class="form-text text-danger" *ngIf="nombreValido('description')" >
                 Description must be longer than 3 letters

@@ -13,7 +13,7 @@ export class AuthInterceptorService implements HttpInterceptor{
     
   }
 
-
+//Interceptor para poder pasarle el token como cabecera de las peticiones.
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const jwt: string|null = localStorage.getItem('jwt');
 
