@@ -21,3 +21,9 @@
 .section{
   background-image: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages6.alphacoders.com%2F348%2F348731.jpg&f=1&nofb=1&ipt=43d103699677cdeb562e799ab7081dbeb17a3b12cd375df1589e22de846d2a20&ipo=images");
 }
+
+.imgRedonda {
+  width:110px;
+  height:80px;
+  border-radius:100px;
+}

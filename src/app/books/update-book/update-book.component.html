@@ -13,7 +13,7 @@
               <div class="form-group" align="center" >
                 <label for="input2"></label>
                 <img src="{{book.img}}" alt="avatar"
-                     class="rounded-circle img-fluid" style="width: 150px;"> 
+                     class="rounded-circle img-fluid imgRedonda"  height="150"> 
                     </div>
            
           <div class="card-body">
@@ -149,7 +149,7 @@
             
             
             <div align="right">
-                <button type="submit" class="btn btn-primary espacioButton" [disabled]="save()">Add Book</button>
+                <button type="submit" class="btn btn-primary espacioButton" [disabled]="myForm.invalid">Update Book</button>
                 <button button type="button" class="btn btn-danger" href="#" [routerLink]="['/books/list']" routerLinkActive="active" >Back</button>
               </div>
               

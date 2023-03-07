@@ -96,7 +96,7 @@ export class AddBookComponent implements OnInit {
                 title: 'Book successfully added',
                 text: '¡Book added!',
             })
-            this.router.navigate(['/books'])
+            this.router.navigate(['/'])
             }
           },error:(err)=> {
             Swal.fire({
@@ -104,7 +104,7 @@ export class AddBookComponent implements OnInit {
               title: 'Oops...',
               text: 'Something has gone wrong!',
             })
-            this.router.navigate(['/books'])
+            this.router.navigate(['/'])
           },
     
     
