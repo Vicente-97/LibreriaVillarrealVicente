@@ -11,6 +11,7 @@ export class AuthGuardian implements CanActivate, CanActivateChild{
 
     constructor(private router:Router, private servicio: AuthService){};
 
+    //Guardian que no nos dej acceder a la ruta si no está logueado.
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
 
         

@@ -10,6 +10,8 @@ import { AuthService } from '../../auth/services/auth.service';
   ]
 })
 export class ListComponent {
+
+  //variables que nos proporcionaran utilidad para localizar el usuario, el token, el username, saber si es admin e incluso la lista de usuarios.
   public users: user[]=[]
  
   username:string|null=localStorage.getItem("username")
@@ -21,7 +23,7 @@ export class ListComponent {
 
   
 
-
+//recuperamos el token y el username, comprobamos si es admin.
   ngOnInit(): void {
    this.getUser()
    this.jwt = localStorage.getItem('jwt');
@@ -32,7 +34,7 @@ export class ListComponent {
 
   }
 
-
+//Método para obtener los usuarios.
   getUser(){
     this.servicio.getUsers().subscribe({
       next:(resp)=> {

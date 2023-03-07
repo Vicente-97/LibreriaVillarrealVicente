@@ -17,11 +17,9 @@ export class ShoppingCartService {
     this.loadCartFromSession();
   }
 
-  // addToCart(book: Books) {
-  //   this.books.push(book);
-  //   this.saveCartToSession();
-  // }
-
+  
+//Método para poder agregar un libro a nuestro carrito de compra, si pulsamos dos veces sobre el añadir, 
+//este solo aumentará la cantidad que podemos ver dentro de nuestro carrito.
   agregarAlCarrito(book: Books) {
     let encontrado=false;
     
@@ -38,24 +36,25 @@ export class ShoppingCartService {
     }
   }
 
-
+//Método para obtener los libros del carrito.
   getItems() {
     return this.books;
   }
 
-
+//Método para limpiar el carrito.
   clearCart() {
   
     this.books = [];
     this.saveCartToSession()
     return this.books;
   }
-
+//Método que utilizo para poder obtener el precio total y convertirlo a moneda.
   getTotal() {   
       return this.books.reduce((total, item) => total + (item.book.price * item.cantidad), 0);
     
   }
 
+  //Método para cargar el carrito en sesion.
    loadCartFromSession() {
     const carrito = window.sessionStorage.getItem('carrito');
     if (carrito) {
@@ -63,6 +62,7 @@ export class ShoppingCartService {
     }
   }
 
+  //Método para poder guardar el carrito en la sesion.
    saveCartToSession() {
     window.sessionStorage.setItem('carrito', JSON.stringify(this.books));
   }
@@ -74,7 +74,7 @@ export class ShoppingCartService {
       this.books.splice(itemIndex, 1);
     }
   }
-
+//Método para poder actualizar la cantidad.
   actualizarCantidad(item: CarritoItem, nuevaCantidad?: number) {
     if (nuevaCantidad) {
       item.cantidad = nuevaCantidad;

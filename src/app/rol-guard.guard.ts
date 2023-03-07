@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class RolGuardGuard implements CanActivate {
   constructor(private router : Router){}
+  //Guardian que nos servirá para poder comprobar el rol.
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {

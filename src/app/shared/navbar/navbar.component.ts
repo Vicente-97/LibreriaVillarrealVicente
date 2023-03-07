@@ -14,7 +14,7 @@ import { ShoppingCartService } from '../../shopping-cart/shopping-cart.service';
 })
 export class NavbarComponent implements OnInit {
 
-
+//variables que nos proporcionaran si el usuario esta logueado, si es admin, y el username entre otros.
   logueado!:boolean;
   jwt: string | null = null;
  
@@ -28,8 +28,10 @@ export class NavbarComponent implements OnInit {
   
   constructor(private servicio: AuthService, private servicioUser: UserService, private serviceShop:ShoppingCartService) { }
 
+  //variable de creacion del carrito.
   carrito: CarritoItem[]=[]
 
+  //recuperamos los items del carrito para que se actualize visualmente para el cliente.
   ngOnInit(): void {
     this.carrito= this.serviceShop.getItems()
     this.jwt = localStorage.getItem('jwt');
@@ -50,13 +52,14 @@ export class NavbarComponent implements OnInit {
     }
   }
 
+  //Método para ver si esta logueado.
   userLogueado(){
     if(localStorage.getItem("authenticated")==="true"){
       this.logueado=true;
     }
   }
 
-
+//Método logOut
   logOut():void{
     this.servicio.logout();
     this.isLoggedIn=false;

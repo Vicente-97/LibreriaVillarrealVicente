@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class ShoppingCartComponent {
 
-
+//json para poder añaadir al carrito el libro.
   json :any={
 
     isbn:'',
@@ -26,15 +26,16 @@ export class ShoppingCartComponent {
   }
 
   constructor( private shopping : ShoppingCartService, private route: Router) { }
-
+//variable para obtener los items del carrito
  books = this.shopping.getItems();
-
+//variable para poder obtener el total del precio.
   total= this.shopping.getTotal();
 
-
+//método para poder updatear el precio total.
   updateTotalPrice(): void {
     this.total = this.shopping.getTotal();
   }
+  //Método para poder vaciar el carrito de compra.
   clearCart() {
     this.shopping.clearCart();
     this.books = this.shopping.getItems();
@@ -42,7 +43,7 @@ export class ShoppingCartComponent {
     this.total=this.shopping.getTotal();
     
   }
-
+//Método de lógica que borra ese objeto de la lista de nuestro carrito guardado en sesion.
   removeItem(book: Books) {
     this.shopping.eliminarDelCarrito(book);
     this.books = this.shopping.getItems();
@@ -51,7 +52,7 @@ export class ShoppingCartComponent {
 
     }
 
-
+// Método para poder updatear la cantidad de un objeto al comprar, con el máximo de stock permitido.
     updateItem(item: CarritoItem, cantidad: number) {
       this.shopping.actualizarCantidad(item, cantidad);
       this.shopping.getTotal()
@@ -60,7 +61,7 @@ export class ShoppingCartComponent {
       
     }
 
-
+//Método para poder añadir la compra y guardarla, restará el stock y redirigirá a la lista de libros.
     addBuy(){
       for(let item of this.books){
         this.json.isbn=item.book.isbn

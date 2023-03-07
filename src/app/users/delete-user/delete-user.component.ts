@@ -23,11 +23,11 @@ export class DeleteUserComponent {
 
   constructor(private servicio : UserService , private route: ActivatedRoute, private router: Router) { }
 
-
+//Establecemos nuestro formulario.
   @ViewChild('deleteUser') deleteUserForm!: NgForm
 
 
-
+//recuperamos el usuario por parámetros y lo obtenemos, linkeamos las propiedades para mostrarlos
   ngOnInit(): void {
     this.username= this.route.snapshot.params['id']
     console.log(this.username);
@@ -42,7 +42,7 @@ export class DeleteUserComponent {
     })
   }
 
-
+//método paraa poder borrar un usuario
   deletedUser(){
     this.servicio.deleteUser(this.username).subscribe({   
 

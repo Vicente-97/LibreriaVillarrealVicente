@@ -13,6 +13,7 @@ import { AuthService } from '../../auth/services/auth.service';
 })
 export class UpdateUserComponent {
 
+  //Variables que nos ayudarán a saber si el usuario esta logueado, el usuario actual, el token y el json de los datos que queremos cambiar.
    public user: user={} as user
   jwt = localStorage.getItem("jwt")
   username!:string
@@ -30,8 +31,11 @@ export class UpdateUserComponent {
 
 
   userDetails!: string|null;
+
+
   constructor(private fb: FormBuilder, private router: Router, private servicio:UserService, private route : ActivatedRoute, private authSer: AuthService){}
 
+  //definimos nuestro formulario
   myForm: FormGroup= this.fb.group({
     nombre:['', [Validators.required, Validators.minLength(3)]],
     email:['', [Validators.required, Validators.email] ],
@@ -41,7 +45,7 @@ export class UpdateUserComponent {
     fileSource:['', [Validators.required]]
   });
 
-  
+  //método para validar los campos del formulario.
   isValidField(field: string){
     return this.myForm?.controls[field].errors
     && this.myForm?.controls[field].touched && this.myForm?.controls[field].invalid
@@ -65,6 +69,9 @@ export class UpdateUserComponent {
     };
   }
 
+  //recuperamos los parámetros y comprobamos que el token no sea nulo, obtenemos el usuario y comprobamos que no pueda
+  //editar un usuario distinto al que esta logueado, si pone en la url una url igual pero con la peculiaridad de que al final en vez
+  // de su usuario es otro, lo redirije a la paagina de error.
   ngOnInit(): void {
     const id = this.route.snapshot.params["id"] 
     if(this.jwt!=null){
