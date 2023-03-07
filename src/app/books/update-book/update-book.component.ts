@@ -59,7 +59,7 @@ export class UpdateBookComponent implements OnInit {
 
 
   myForm: FormGroup= this.fb.group({
-    isbn:['', [Validators.required, Validators.minLength(3)]],
+    isbn:['', ],
     title:['', [Validators.required, Validators.minLength(5)] ],
     date:['', [Validators.required]],
     author:['', [Validators.required ]],
