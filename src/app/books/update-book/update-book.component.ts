@@ -112,6 +112,12 @@ export class UpdateBookComponent implements OnInit {
     
     
         })
+      },error:(err)=> {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'El libro no se puede Actualizar.',
+        })
       },
     })
    
