@@ -104,7 +104,7 @@ export class AddBookComponent implements OnInit {
               title: 'Oops...',
               text: 'Something has gone wrong!',
             })
-            
+            this.router.navigate(['/books'])
           },
     
     
