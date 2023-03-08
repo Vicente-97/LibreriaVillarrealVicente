@@ -100,11 +100,11 @@ export class UpdateUserComponent {
     this.json.email= this.myForm.get('email')?.value
     this.json.name=this.myForm.get('nombre')?.value
 
-    if(this.myForm.get('fileSource')!=null){
+    if(this.myForm.get('fileSource')==null){
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
-        text: 'sorry!',
+        text: 'sorry, The photo cannot be empty!',
         footer: '<a href="">Why do I have this issue?</a>'
       })
       this.router.navigate(['/'])
