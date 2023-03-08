@@ -121,15 +121,15 @@ export class UpdateUserComponent {
             text: '¡User Update sucess!',
         });
         }
-      },error:(err)=> {
-        Swal.fire({
-          icon: 'error',
-          title: 'Oops...',
-          text: 'sorry!',
-          footer: '<a href="">Why do I have this issue?</a>'
-        })
-        this.myForm.reset()
-      },
+      }// },error:(err)=> {
+      //   Swal.fire({
+      //     icon: 'error',
+      //     title: 'Oops...',
+      //     text: 'sorry!',
+      //     footer: '<a href="">Why do I have this issue?</a>'
+      //   })
+      //   this.myForm.reset()
+      // },
     })
   }
 
